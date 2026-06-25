@@ -60,7 +60,7 @@
           border-radius: 6px;
           padding: 35px 40px;
           box-shadow: 0 4px 20px rgba(46, 44, 41, 0.02);
-          text-align: center; /* Выравнивание текста баннера по центру */
+          text-align: center;
       }
       .custom-order-title {
           font-size: 1.3rem;
@@ -848,7 +848,6 @@
 
   <div id="dynamic-content"></div>
 
-  <!-- Кнопка Наверх -->
   <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">‹</button>
 
   <div class="bottom-bar">
@@ -867,8 +866,7 @@
       <div class="cart-modal-content" onclick="event.stopPropagation()">
           <span class="cart-close-btn" onclick="closeCartModal()">&times;</span>
           <div class="cart-modal-title">Ваш заказ</div>
-          <div class="cart-items-list" id="cart-items-container">
-              </div>
+          <div class="cart-items-list" id="cart-items-container"></div>
           <div class="cart-total-block">
               <span>Итого:</span>
               <span id="cart-total-price">0 ₸</span>
@@ -884,8 +882,7 @@
           brandName: "WOODY BRAND",
           brandLogo: "Images/logo.png", 
           brandDesc: "Изделия из дерева для ресторанов и бизнеса в Астане",
-          // Текст для кнопки быстрого расчета:
-          customOrderText: "Здравствуйте! Я хочу сделать индивидуальный расчет изделия по референсу / собственным размерам.",
+          customOrderText: "Здравствуйте! Я хочу сделать индивидуальный расчет. Подскажите, пожалуйста, условия: хочу изготовить изделие по референсу или собственным размерам.",
           
           categories: [
               { id: "massiv", name: "Массив дерева", desc: "Доски для стейков, премиум органайзеры, пеналы под приборы" },
@@ -1215,28 +1212,22 @@
           ]
       };
 
-      // Состояние корзины
       let cart = JSON.parse(localStorage.getItem('woody_cart')) || [];
-
-      // Глобальное состояние для лайтбокса
       let currentLightboxImages = [];
       let currentLightboxIndex = 0;
 
-      // Инициализация
       document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("brand-desc").textContent = DATA.brandDesc;
-          document.getElementById("brand-logo").innerHTML = `<img src="${DATA.brandLogo}" alt="${DATA.brandName}">`;
+          document.getElementById("brand-logo").innerHTML = `<img src="${DATA.brandLogo}" alt="${DATA.brandName}" loading="lazy">`;
           document.getElementById("instagram-block").innerHTML = `
               <a href="${DATA.instagramUrl}" class="instagram-btn" target="_blank">Instagram</a>
           `;
           
-          // НАСТРОЙКА КНОПКИ «Индивидуальный расчет» с шаблонным сообщением:
           document.getElementById("main-cta-btn").href = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(DATA.customOrderText)}`;
           
           updateCartBadge();
           showMainMenu();
 
-          // Логика показа кнопки Наверх при скролле
           const scrollTopBtn = document.getElementById("scrollTopBtn");
           window.addEventListener("scroll", () => {
               if (window.scrollY > 400) {
@@ -1244,48 +1235,39 @@
               } else {
                   scrollTopBtn.classList.remove("visible");
               }
-          });
+          }, { passive: true }); // Оптимизация производительности скролла на мобильных
       });
 
-      // Скролл наверх
       function scrollToTop() {
-          window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-          });
+          window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
-      // Переключение в главное меню
       function showMainMenu() {
           document.getElementById("back-nav-block").style.display = "none";
           const container = document.getElementById("dynamic-content");
           
-          let categoriesHtml = DATA.categories.map(cat => {
-              return `
-                  <div class="category-menu-card" onclick="showCategory('${cat.id}')">
-                      <div class="category-menu-title">${cat.name}</div>
-                      <div style="font-size:0.95rem; color:var(--text-muted);">${cat.desc}</div>
-                  </div>
-              `;
-          }).join('');
+          let categoriesHtml = DATA.categories.map(cat => `
+              <div class="category-menu-card" onclick="showCategory('${cat.id}')">
+                  <div class="category-menu-title">${cat.name}</div>
+                  <div style="font-size:0.95rem; color:var(--text-muted);">${cat.desc}</div>
+              </div>
+          `).join('');
 
           let portfolioHtml = DATA.portfolio.map(item => `
               <div class="portfolio-card">
                   <div class="portfolio-img-wrapper">
-                      <img src="${item.img}" alt="Наши работы" onclick="openLightbox(['${item.img}'], 0, event)">
+                      <img src="${item.img}" alt="Наши работы" loading="lazy" onclick="openLightbox(['${item.img}'], 0, event)">
                   </div>
               </div>
           `).join('');
 
           container.innerHTML = `
-              <!-- ИНФОРМАЦИОННЫЙ БАННЕР -->
               <div class="custom-order-banner" id="custom-order-banner">
                   <div class="container">
                       <div class="custom-order-box">
                           <div class="custom-order-title">Собственное производство под заказ</div>
                           <div class="custom-order-text">
                               Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. </div><strong>Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.</strong></div>
-                          </div>
                       </div>
                   </div>
               </div>
@@ -1306,7 +1288,6 @@
           window.scrollTo(0, 0);
       }
 
-      // Переключение внутрь категории товаров
       function showCategory(catId) {
           document.getElementById("back-nav-block").style.display = "block";
           const container = document.getElementById("dynamic-content");
@@ -1329,8 +1310,9 @@
               `;
 
               subcategories[subName].forEach((p) => {
+                  // Добавлен loading="lazy" для всех картинок товаров
                   let imgElements = p.img.map((src, i) => `
-                      <img src="${src}" class="${i === 0 ? 'active' : ''}" data-index="${i}" alt="${p.title}" onclick="openLightbox(${JSON.stringify(p.img).replace(/"/g, '&quot;')}, ${i}, event)">
+                      <img src="${src}" class="${i === 0 ? 'active' : ''}" data-index="${i}" alt="${p.title}" loading="lazy" onclick="openLightbox(${JSON.stringify(p.img).replace(/"/g, '&quot;')}, ${i}, event)">
                   `).join('');
 
                   let arrows = p.img.length > 1 ? `
@@ -1388,7 +1370,6 @@
           window.scrollTo(0, 0);
       }
 
-      // Регулировка количества кнопками
       function adjustProductQty(productId, delta) {
           const input = document.getElementById(`input-${productId}`);
           let val = parseInt(input.value) || 0;
@@ -1397,7 +1378,6 @@
           input.value = val;
       }
 
-      // Проверка ручного ввода с клавиатуры
       function validateQtyInput(productId) {
           const input = document.getElementById(`input-${productId}`);
           let val = parseInt(input.value);
@@ -1406,7 +1386,6 @@
           }
       }
 
-      // Добавление в корзину
       function handleAddToCart(productId) {
           const input = document.getElementById(`input-${productId}`);
           let qty = parseInt(input.value) || 5;
@@ -1441,7 +1420,6 @@
           }, 1200);
       }
 
-      // Поиск цены за единицу
       function calculateUnitPrice(product, qty) {
           const tier = product.priceTiers.find(t => qty >= t.min && qty <= t.max);
           if (!tier) return product.priceTiers[0].price;
@@ -1457,7 +1435,6 @@
           badge.textContent = `(${cart.length})`;
       }
 
-      // Открытие корзины
       function openCartModal() {
           const modal = document.getElementById('cart-modal');
           const container = document.getElementById('cart-items-container');
@@ -1510,7 +1487,6 @@
           openCartModal();
       }
 
-      // Формирование сообщения в WhatsApp
       function sendOrderToWhatsApp() {
           if (cart.length === 0) return;
 
@@ -1532,13 +1508,12 @@
           });
 
           text += `*Итого предварительно: ${overallTotal.toLocaleString('ru-RU')} ₸*\n\n`;
-          text += `Пожалуйста, проверьте заказ и подготовьте полную стоимость.`;
+          text += `Пожалуйста, проверьте заказ и подготовьте полную стоимость с учётом брендирования.`;
 
           const url = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(text)}`;
           window.open(url, '_blank');
       }
 
-      // Слайдер внутри карточки
       function changeSlide(btn, direction, event) {
           event.stopPropagation();
           const wrapper = btn.closest('.product-img-wrapper');
@@ -1561,7 +1536,6 @@
           if (dots.length) dots[newIndex].classList.add('active');
       }
 
-      // Лайтбокс
       function openLightbox(imagesArray, index, event) {
           event.stopPropagation();
           currentLightboxImages = imagesArray;
