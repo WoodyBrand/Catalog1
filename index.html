@@ -125,7 +125,7 @@
       .brand-logo img {
           max-height: 80px;
           object-fit: contain;
-      }
+       }
 
       .brand-text-heading {
           font-size: 2.4rem;
@@ -192,8 +192,30 @@
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           display: flex;
           flex-direction: column;
+          align-items: center;
           justify-content: center;
           min-height: 180px;
+          -webkit-tap-highlight-color: transparent;
+      }
+
+      /* Стили активного призыва к действию внутри категорий */
+      .category-link-action {
+          margin-top: 15px;
+          font-size: 0.85rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: var(--text-main);
+          text-decoration: underline;
+          text-underline-offset: 4px;
+          transition: color 0.2s ease;
+      }
+
+      /* Визуальный отклик на клик/тап для мобильных */
+      .category-menu-card:active {
+          background-color: #fcfbfa;
+          border-color: #c9c6bb;
+          transform: scale(0.98);
       }
 
       @media (hover: hover) {
@@ -201,6 +223,9 @@
               border-color: #c9c6bb;
               box-shadow: 0 20px 38px rgba(46, 44, 41, 0.08);
               transform: translateY(-4px);
+          }
+          .category-menu-card:hover .category-link-action {
+              color: var(--text-muted);
           }
       }
 
@@ -318,7 +343,6 @@
           height: 100%;
       }
 
-      /* Оптимизация картинок слайдера: аппаратное ускорение */
       .product-slides img {
           position: absolute;
           top: 0;
@@ -330,8 +354,6 @@
           visibility: hidden;
           transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
           cursor: zoom-in;
-          
-          /* Активация графического чипа смартфона (GPU) для плавности */
           will-change: opacity, visibility;
           transform: translate3d(0, 0, 0); 
       }
@@ -340,7 +362,6 @@
           visibility: visible;
       }
 
-      /* Показываем картинку только когда она и активна, и загружена */
       .product-slides img.active.loaded {
           opacity: 1;
       }
@@ -1311,6 +1332,7 @@
               <div class="category-menu-card" onclick="showCategory('${cat.id}')">
                   <div class="category-menu-title">${cat.name}</div>
                   <div style="font-size:0.95rem; color:var(--text-muted);">${cat.desc}</div>
+                  <div class="category-link-action">Смотреть каталог →</div>
               </div>
           `).join('');
 
@@ -1328,7 +1350,7 @@
                       <div class="custom-order-box">
                           <div class="custom-order-title">Собственное производство под заказ</div>
                           <div class="custom-order-text">
-                              Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. </div><strong>Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.</strong></div>
+                              Все позиции in каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. </div><strong>Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.</strong></div>
                       </div>
                   </div>
               </div>
@@ -1581,13 +1603,11 @@
           });
 
           text += `*Итого предварительно: ${overallTotal.toLocaleString('ru-RU')} ₸*\n\n`;
-          text += `Пожалуйста, проверьте заказ и подготовьте полную стоимость с учётом брендирования.`;
 
           const url = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(text)}`;
           window.open(url, '_blank');
       }
 
-      // Исправленная и глубоко оптимизированная функция смены слайдов
       function changeSlide(btn, direction, event) {
           event.stopPropagation();
           const wrapper = btn.closest('.product-img-wrapper');
@@ -1606,7 +1626,6 @@
           const currentImg = imgs[activeIndex];
           const nextImg = imgs[newIndex];
           
-          // Ленивая подгрузка следующего изображения при перелистывании
           if (nextImg.dataset.delayedSrc) {
               nextImg.src = nextImg.dataset.delayedSrc;
               nextImg.removeAttribute('data-delayed-src');
@@ -1614,11 +1633,9 @@
                   nextImg.classList.add('loaded');
               }, { once: true });
           } else {
-              // Если картинка уже была загружена ранее, принудительно ставим класс loaded
               nextImg.classList.add('loaded');
           }
 
-          // Плавная смена состояний без Layout Thrashing
           currentImg.classList.remove('active');
           nextImg.classList.add('active');
 
