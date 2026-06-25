@@ -89,7 +89,7 @@
       }
 
       .section-products {
-          padding: 40px 0 70px;
+          padding: 20px 0 70px;
           background-color: #ffffff; 
       }
 
@@ -198,7 +198,6 @@
           -webkit-tap-highlight-color: transparent;
       }
 
-      /* Стили активного призыва к действию внутри категорий */
       .category-link-action {
           margin-top: 15px;
           font-size: 0.85rem;
@@ -211,7 +210,6 @@
           transition: color 0.2s ease;
       }
 
-      /* Визуальный отклик на клик/тап для мобильных */
       .category-menu-card:active {
           background-color: #fcfbfa;
           border-color: #c9c6bb;
@@ -244,6 +242,44 @@
           text-transform: uppercase;
           letter-spacing: 2px;
           text-align: center;
+      }
+
+      .subcategory-fast-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 40px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid var(--border-color);
+          justify-content: center;
+      }
+
+      .fast-nav-link {
+          background-color: #fdfdfc;
+          border: 1px solid var(--border-color);
+          color: var(--text-main);
+          padding: 8px 16px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          -webkit-tap-highlight-color: transparent;
+      }
+
+      .fast-nav-link:active {
+          transform: scale(0.96);
+          background-color: #eae7df;
+      }
+
+      @media (hover: hover) {
+          .fast-nav-link:hover {
+              border-color: var(--text-main);
+              background-color: var(--text-main);
+              color: #ffffff;
+          }
       }
 
       .portfolio-grid {
@@ -288,7 +324,10 @@
           cursor: zoom-in;
       }
 
-      .subcategory-section { margin-bottom: 60px; }
+      .subcategory-section { 
+          margin-bottom: 60px; 
+          scroll-margin-top: 30px; 
+      }
 
       .subcategory-title {
           font-size: 1.5rem;
@@ -523,6 +562,8 @@
           flex-grow: 1;
       }
 
+      .product-footer { margin-top: auto; }
+
       .product-meta {
           font-size: 0.8rem;
           text-transform: uppercase;
@@ -552,8 +593,6 @@
       
       .tier-range { color: var(--text-muted); font-weight: 400; }
       .tier-price { font-weight: 700; color: var(--text-main); }
-
-      .product-footer { margin-top: auto; }
 
       .action-row {
           display: flex;
@@ -802,6 +841,9 @@
           .category-menu-card { min-height: 140px; padding: 35px 25px; }
           .category-menu-title { font-size: 1.25rem; }
 
+          .subcategory-fast-nav { gap: 8px; margin-bottom: 25px; padding-bottom: 10px; }
+          .fast-nav-link { padding: 6px 12px; font-size: 0.78rem; }
+
           .custom-order-banner { padding: 25px 0 5px; } 
           .custom-order-box { padding: 25px 20px; }
           .custom-order-title { font-size: 1.15rem; }
@@ -903,7 +945,7 @@
           
           categories: [
               { id: "massiv", name: "Массив дерева", desc: "Доски для стейков, премиум органайзеры, пеналы под приборы" },
-              { id: "fanera", name: "Изделия из фанеры", desc: "Салфетницы, подносы, RESERVED" }
+              { id: "fanera", name: "Изделия из фанеры", desc: "Органайзеры, подносы, RESERVED" }
           ],
 
           portfolio: [
@@ -1089,8 +1131,8 @@
               {
                   id: "org-f-01",
                   category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-01",
+                  subcategory: "Органайзеры",
+                  title: "Органайзер ORG-F-01",
                   desc: "Материал: Берёза / Размер: 20*15*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-01_1.jpg", "Images/ORG-F-01_2.jpg"],
@@ -1103,8 +1145,8 @@
               {
                   id: "org-f-02",
                   category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-02",
+                  subcategory: "Органайзеры",
+                  title: "Органайзер ORG-F-02",
                   desc: "Материал: Берёза / Размер: 16*11*14 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-02_1.jpg", "Images/ORG-F-02_2.jpg"],
@@ -1117,8 +1159,8 @@
               {
                   id: "org-f-03",
                   category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-03",
+                  subcategory: "Органайзеры",
+                  title: "Органайзер ORG-F-03",
                   desc: "Материал: Берёза / Размер: 15*10*11 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-03_1.jpg", "Images/ORG-F-03_2.jpg"],
@@ -1131,8 +1173,8 @@
               {
                   id: "org-f-04",
                   category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-04",
+                  subcategory: "Органайзеры",
+                  title: "Органайзер ORG-F-04",
                   desc: "Материал: Берёза / Размер: 27*14*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-04_1.jpg", "Images/ORG-F-04_2.jpg"],
@@ -1145,8 +1187,8 @@
               {
                   id: "org-f-05",
                   category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-05",
+                  subcategory: "Органайзеры",
+                  title: "Органайзер ORG-F-05",
                   desc: "Материал: Берёза / Размер: 21*14*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-05_1.jpg", "Images/ORG-F-05_2.jpg"],
@@ -1159,8 +1201,8 @@
               {
                   id: "org-f-06",
                   category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-06",
+                  subcategory: "Органайзеры",
+                  title: "Органайзер ORG-F-06",
                   desc: "Материал: Берёза / Размер: 23*14*8 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-06_1.jpg", "Images/ORG-F-06_2.jpg"],
@@ -1173,8 +1215,8 @@
               {
                   id: "org-f-07",
                   category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-07",
+                  subcategory: "Органайзеры",
+                  title: "Органайзер ORG-F-07",
                   desc: "Материал: Берёза / Размер: 21*15*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-07_1.jpg", "Images/ORG-F-07_2.jpg"],
@@ -1323,6 +1365,13 @@
           window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
+      function scrollToSection(sectionId) {
+          const element = document.getElementById(sectionId);
+          if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+          }
+      }
+
       function showMainMenu() {
           document.getElementById("back-nav-block").style.display = "none";
           const container = document.getElementById("dynamic-content");
@@ -1350,7 +1399,7 @@
                       <div class="custom-order-box">
                           <div class="custom-order-title">Собственное производство под заказ</div>
                           <div class="custom-order-text">
-                              Все позиции in каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. </div><strong>Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.</strong></div>
+                              Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. </div><strong>Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.</strong></div>
                       </div>
                   </div>
               </div>
@@ -1388,11 +1437,23 @@
               subcategories[p.subcategory].push(p);
           });
 
-          let html = `<section class="section-products"><div class="container">`;
-
+          let fastNavHtml = `<div class="subcategory-fast-nav">`;
+          let uniqueIdCounter = 0;
           for (let subName in subcategories) {
+              const sectionId = `sub-sec-${catId}-${uniqueIdCounter++}`;
+              fastNavHtml += `
+                  <button class="fast-nav-link" onclick="scrollToSection('${sectionId}')">${subName}</button>
+              `;
+          }
+          fastNavHtml += `</div>`;
+
+          let html = `<section class="section-products"><div class="container">${fastNavHtml}`;
+
+          uniqueIdCounter = 0;
+          for (let subName in subcategories) {
+              const sectionId = `sub-sec-${catId}-${uniqueIdCounter++}`;
               html += `
-                  <div class="subcategory-section">
+                  <div class="subcategory-section" id="${sectionId}">
                       <h3 class="subcategory-title">${subName}</h3>
                       <div class="products-grid">
               `;
@@ -1603,7 +1664,7 @@
           });
 
           text += `*Итого предварительно: ${overallTotal.toLocaleString('ru-RU')} ₸*\n\n`;
-
+          
           const url = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(text)}`;
           window.open(url, '_blank');
       }
