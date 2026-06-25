@@ -93,6 +93,11 @@
           cursor: pointer;
           display: inline-block;
           width: 100%;
+          text-align: center;
+      }
+      .brand-logo img {
+          max-height: 80px;
+          object-fit: contain;
       }
 
       .brand-text-heading {
@@ -600,6 +605,7 @@
   <header>
       <div class="container">
           <div class="brand-logo" id="brand-logo" onclick="showMainMenu()"></div>
+          <span class="brand-text-heading" onclick="showMainMenu()">WOODY BRAND</span>
           <div class="brand-desc" id="brand-desc">Загрузка...</div>
           <div class="instagram-link-wrapper" id="instagram-block"></div>
       </div>
@@ -636,14 +642,14 @@
           ],
 
           portfolio: [
-              { img: "images/20260620_150118 копия.jpg" },
-              { img: "images/20260608_144915 копия.jpg" },
-              { img: "images/20260407_100406 копия.jpg" },
-              { img: "images/2026-06-12 00-49-18.JPG" },
-              { img: "images/2026-03-11 04-27-28.JPG" },
-              { img: "images/2026-06-21 15-48-06.JPG" },
-              { img: "images/20260414_140912 копия.jpg" },
-              { img: "images/2026-04-11 17-54-23.JPG" }
+              { img: "images/20260620_150118_копия.jpg" },
+              { img: "images/20260608_144915_копия.jpg" },
+              { img: "images/20260407_100406_копия.jpg" },
+              { img: "images/2026-06-12_00-49-18.jpg" },
+              { img: "images/2026-03-11_04-27-28.jpg" },
+              { img: "images/2026-06-21_15-48-06.jpg" },
+              { img: "images/20260414_140912_копия.jpg" },
+              { img: "images/2026-04-11_17-54-23.jpg" }
           ],
 
           products: [
@@ -653,7 +659,7 @@
                   title: "Доска для Стейка DST-M-01",
                   desc: "Материал: Ясень / Размер: 35х25x2 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/2026-06-20 01-21-35.JPG", "images/2026-06-20 01-22-05.JPG"],
+                  img: ["images/2026-06-20_01-21-35.jpg", "images/2026-06-20_01-22-05.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "11 500 ₸" },
                       { range: "10–40 шт.", price: "9 700 ₸" },
@@ -679,7 +685,7 @@
                   title: "Доска для Сета DDS-M-01",
                   desc: "Материал: Ясень / Размер: 30х30x2 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/DDS-M-01 1.jpg", "images/DDS-M-01 2.jpg"],
+                  img: ["images/DDS-M-01_1.jpg", "images/DDS-M-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "11 500 ₸" },
                       { range: "10–40 шт.", price: "9 700 ₸" },
@@ -692,7 +698,7 @@
                   title: "Пенал под приборы PPP-M-L-01",
                   desc: "Материал: Бук / Размер: 25х12x4 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/PPP-M-L-01 1.jpg", "images/PPP-M-L-01 2.jpg"],
+                  img: ["images/PPP-M-L-01_1.jpg", "images/PPP-M-L-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "8 600 ₸" },
                       { range: "10–40 шт.", price: "7 300 ₸" },
@@ -705,7 +711,7 @@
                   title: "Пенал под приборы PPP-M-S-01",
                   desc: "Материал: Бук / Размер: 25х6,5x4 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/PPP-M-S-01 1.jpg", "images/PPP-M-S-01 2.jpg"],
+                  img: ["images/PPP-M-S-01_1.jpg", "images/PPP-M-S-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "6 500 ₸" },
                       { range: "10–40 шт.", price: "5 500 ₸" },
@@ -718,7 +724,7 @@
                   title: "Пенал под приборы PPP-M-M-01",
                   desc: "Материал: Бук / Размер: 25х10x2 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/PPP-M-M-01 1.jpg", "images/PPP-M-M-01 2.jpg"],
+                  img: ["images/PPP-M-M-01_1.jpg", "images/PPP-M-M-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "5 300 ₸" },
                       { range: "10–40 шт.", price: "4 500 ₸" },
@@ -731,7 +737,7 @@
                   title: "Органайзер ORG-M-01",
                   desc: "Материал: Бук / Размер: 16х11x8 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/ORG-M-01 1.jpg", "images/ORG-M-01 2.jpg"],
+                  img: ["images/ORG-M-01_1.jpg", "images/ORG-M-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "7 900 ₸" },
                       { range: "10–40 шт.", price: "6 700 ₸" },
@@ -744,7 +750,7 @@
                   title: "Органайзер ORG-M-02",
                   desc: "Материал: Бук / Размер: 16х11x8 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/ORG-M-02 1.jpg", "images/ORG-M-02 2.jpg"],
+                  img: ["images/ORG-M-02_1.jpg", "images/ORG-M-02_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "9 700 ₸" },
                       { range: "10–40 шт.", price: "8 200 ₸" },
@@ -757,7 +763,7 @@
                   title: "Органайзер ORG-M-03",
                   desc: "Материал: Бук, Акрил / Размер: 18х13x11 см",
                   meta: "Цены с учётом брендирования",
-                  img: ["images/ORG-M-03 1.jpg", "images/ORG-M-03 2.jpg"],
+                  img: ["images/ORG-M-03_1.jpg", "images/ORG-M-03_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "9 700 ₸" },
                       { range: "10–40 шт.", price: "8 200 ₸" },
@@ -768,9 +774,9 @@
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-01",
-                  desc: "Материал: ... / Размер: 20*15*6 см.",
+                  desc: "Материал: Берёза / Размер: 20*15*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/ORG-F-01 1.jpg", "images/ORG-F-01 2.jpg"],
+                  img: ["images/ORG-F-01_1.jpg", "images/ORG-F-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 800 ₸" },
                       { range: "10–40 шт.", price: "3 600 ₸" },
@@ -781,9 +787,9 @@
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-02",
-                  desc: "Материал: ... / Размер: 16*11*14 см.",
+                  desc: "Материал: Берёза / Размер: 16*11*14 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/ORG-F-02 1.jpg", "images/ORG-F-02 2.jpg"],
+                  img: ["images/ORG-F-02_1.jpg", "images/ORG-F-02_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 200 ₸" },
                       { range: "10–40 шт.", price: "3 200 ₸" },
@@ -794,9 +800,9 @@
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-03",
-                  desc: "Материал: ... / Размер: 15*10*11 см.",
+                  desc: "Материал: Берёза / Размер: 15*10*11 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/ORG-F-03 1.jpg", "images/ORG-F-03 2.jpg"],
+                  img: ["images/ORG-F-03_1.jpg", "images/ORG-F-03_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 000 ₸" },
                       { range: "10–40 шт.", price: "3 000 ₸" },
@@ -807,9 +813,9 @@
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-04",
-                  desc: "Материал: ... / Размер: 27*14*6 см.",
+                  desc: "Материал: Берёза / Размер: 27*14*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/ORG-F-04 1.jpg", "images/ORG-F-04 2.jpg"],
+                  img: ["images/ORG-F-04_1.jpg", "images/ORG-F-04_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 200 ₸" },
                       { range: "10–40 шт.", price: "3 200 ₸" },
@@ -820,9 +826,9 @@
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-05",
-                  desc: "Материал: ... / Размер: 21*14*6 см.",
+                  desc: "Материал: Берёза / Размер: 21*14*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/ORG-F-05 1.jpg", "images/ORG-F-05 2.jpg"],
+                  img: ["images/ORG-F-05_1.jpg", "images/ORG-F-05_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 200 ₸" },
                       { range: "10–40 шт.", price: "3 200 ₸" },
@@ -833,9 +839,9 @@
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-06",
-                  desc: "Материал: ... / Размер: 23*14*8 см.",
+                  desc: "Материал: Берёза / Размер: 23*14*8 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/ORG-F-06 1.jpg", "images/ORG-F-06 2.jpg"],
+                  img: ["images/ORG-F-06_1.jpg", "images/ORG-F-06_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 500 ₸" },
                       { range: "10–40 шт.", price: "3 400 ₸" },
@@ -846,9 +852,9 @@
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-07",
-                  desc: "Материал: ... / Размер: 21*15*6 см.",
+                  desc: "Материал: Берёза / Размер: 21*15*6 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/ORG-F-07 1.jpg", "images/ORG-F-07 2.jpg"],
+                  img: ["images/ORG-F-07_1.jpg", "images/ORG-F-07_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 200 ₸" },
                       { range: "10–40 шт.", price: "3 200 ₸" },
@@ -859,9 +865,9 @@
                   category: "fanera",
                   subcategory: "Подносы",
                   title: "Поднос PDNS-F-01",
-                  desc: "Материал: ... / Размер: 30*20*1,2 см.",
+                  desc: "Материал: Берёза / Размер: 30*20*1,2 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/PDNS-F-01 1.jpg", "images/PDNS-F-01 2.jpg"],
+                  img: ["images/PDNS-F-01_1.jpg", "images/PDNS-F-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 200 ₸" },
                       { range: "10–40 шт.", price: "3 200 ₸" },
@@ -872,9 +878,9 @@
                   category: "fanera",
                   subcategory: "Подносы",
                   title: "Поднос PDNS-F-02",
-                  desc: "Материал: ... / Размер: 40*30*5 см.",
+                  desc: "Материал: Берёза / Размер: 40*30*5 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/PDNS-F-02 1.jpg", "images/PDNS-F-02 2.jpg"],
+                  img: ["images/PDNS-F-02_1.jpg", "images/PDNS-F-02_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "6 900 ₸" },
                       { range: "10–40 шт.", price: "5 200 ₸" },
@@ -885,9 +891,9 @@
                   category: "fanera",
                   subcategory: "Подносы",
                   title: "Поднос PDNS-F-03",
-                  desc: "Материал: ... / Размер: 33*21*1,2 см.",
+                  desc: "Материал: Берёза / Размер: 33*21*1,2 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/PDNS-F-03 1.jpg", "images/PDNS-F-03 2.jpg"],
+                  img: ["images/PDNS-F-03_1.jpg", "images/PDNS-F-03_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 200 ₸" },
                       { range: "10–40 шт.", price: "3 200 ₸" },
@@ -898,9 +904,9 @@
                   category: "fanera",
                   subcategory: "Пеналы под приборы",
                   title: "Пенал под приборы PPP-F-01",
-                  desc: "Материал: ... / Размер: 33*21*1,2 см.",
+                  desc: "Материал: Берёза / Размер: 33*21*1,2 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/PPP-F-01 1.jpg", "images/PPP-F-01 2.jpg"],
+                  img: ["images/PPP-F-01_1.jpg", "images/PPP-F-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "3 600 ₸" },
                       { range: "10–40 шт.", price: "2 700 ₸" },
@@ -911,9 +917,9 @@
                   category: "fanera",
                   subcategory: "Резерв",
                   title: "Резерв RSR-F-01",
-                  desc: "Материал: ... / Размер: 23*5*8 см.",
+                  desc: "Материал: Берёза / Размер: 23*5*8 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/RSR-F-01 1.jpg", "images/RSR-F-01 2.jpg"],
+                  img: ["images/RSR-F-01_1.jpg", "images/RSR-F-01_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "3 400 ₸" },
                       { range: "10–40 шт.", price: "2 600 ₸" },
@@ -924,9 +930,9 @@
                   category: "fanera",
                   subcategory: "Резерв",
                   title: "Резерв RSR-F-02",
-                  desc: "Материал: ... / Размер: 25*7*19 см.",
+                  desc: "Материал: Берёза / Размер: 25*7*19 см.",
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: ["images/RSR-F-02 1.jpg", "images/RSR-F-02 2.jpg"],
+                  img: ["images/RSR-F-02_1.jpg", "images/RSR-F-02_2.jpg"],
                   priceTiers: [
                       { range: "5–9 шт.", price: "4 200 ₸" },
                       { range: "10–40 шт.", price: "3 200 ₸" },
@@ -936,83 +942,78 @@
           ]
       };
 
-      // Инициализация при загрузке
+      // Глобальное состояние для лайтбокса (увеличения фото)
+      let currentLightboxImages = [];
+      let currentLightboxIndex = 0;
+
+      // Инициализация при загрузке страницы
       document.addEventListener("DOMContentLoaded", () => {
-          // Заполняем шапку
-          document.getElementById("brand-logo").innerHTML = `<span class="brand-text-heading">${DATA.brandName}</span>`;
-          document.getElementById("brand-desc").innerText = DATA.brandDesc;
+          document.getElementById("brand-desc").textContent = DATA.brandDesc;
+          
+          // Рендерим логотип
+          document.getElementById("brand-logo").innerHTML = `<img src="${DATA.brandLogo}" alt="${DATA.brandName}">`;
+          
+          // Кнопка Инстаграма
           document.getElementById("instagram-block").innerHTML = `
-              <a href="${DATA.instagramUrl}" target="_blank" class="instagram-btn">Instagram</a>
+              <a href="${DATA.instagramUrl}" class="instagram-btn" target="_blank">Instagram</a>
           `;
           
-          // Настройка главной кнопки в футере
-          const mainCta = document.getElementById("main-cta-btn");
-          mainCta.href = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent("Здравствуйте! Хочу заказать индивидуальный расчет деревянных изделий.")}`;
-
+          // Ссылка для главной кнопки снизу
+          document.getElementById("main-cta-btn").href = `https://wa.me/${DATA.whatsappNumber}`;
+          
           showMainMenu();
       });
 
-      // Отображение Главного меню (Категории + Портфолио)
+      // Переключение в главное меню
       function showMainMenu() {
           document.getElementById("back-nav-block").style.display = "none";
-          window.scrollTo(0, 0);
-
-          let html = `
-              <section class="section-categories">
-                  <div class="container">
-                      <div class="main-categories-grid">
-          `;
-
-          DATA.categories.forEach(cat => {
+          const container = document.getElementById("dynamic-content");
+          
+          let categoriesHtml = DATA.categories.map(cat => {
               const count = DATA.products.filter(p => p.category === cat.id).length;
-              html += `
+              return `
                   <div class="category-menu-card" onclick="showCategory('${cat.id}')">
                       <div class="category-menu-title">${cat.name}</div>
-                      <div style="color: var(--text-muted); font-size:0.95rem; margin-bottom:15px;">${cat.desc}</div>
+                      <div style="font-size:0.95rem; color:var(--text-muted); margin-bottom:15px;">${cat.desc}</div>
                       <div class="category-menu-count">${count} моделей</div>
                   </div>
               `;
-          });
+          }).join('');
 
-          html += `
-                      </div>
+          let portfolioHtml = DATA.portfolio.map(item => `
+              <div class="portfolio-card">
+                  <div class="portfolio-img-wrapper">
+                      <img src="${item.img}" alt="Наши работы" onclick="openLightbox(['${item.img}'], 0, event)">
+                  </div>
+              </div>
+          `).join('');
+
+          container.innerHTML = `
+              <section class="section-categories">
+                  <div class="container">
+                      <div class="main-categories-grid">${categoriesHtml}</div>
                   </div>
               </section>
               <section class="section-portfolio">
                   <div class="container">
-                      <div class="section-title">Наша мастерская</div>
-                      <div class="portfolio-grid" style="margin-top:30px;">
-          `;
-
-          DATA.portfolio.forEach((item, idx) => {
-              html += `
-                  <div class="portfolio-card">
-                      <div class="portfolio-img-wrapper">
-                          <img src="${item.img}" alt="Работа Woody Brand" onclick="openPortfolioLightbox(${idx})">
-                      </div>
-                  </div>
-              `;
-          });
-
-          html += `
-                      </div>
+                      <h2 class="section-title">Примеры готовых работ</h2>
+                      <div class="portfolio-grid" style="margin-top:30px;">${portfolioHtml}</div>
                   </div>
               </section>
           `;
-
-          document.getElementById("dynamic-content").innerHTML = html;
+          window.scrollTo(0, 0);
       }
 
-      // Переход в конкретную категорию товаров
+      // Переключение внутрь категории товаров
       function showCategory(catId) {
           document.getElementById("back-nav-block").style.display = "block";
-          window.scrollTo(0, 0);
-
-          const filtered = DATA.products.filter(p => p.category === catId);
+          const container = document.getElementById("dynamic-content");
+          
+          const filteredProducts = DATA.products.filter(p => p.category === catId);
           
           // Группируем по подкатегориям
           const subcategories = {};
-          filtered.forEach(p => {
+          filteredProducts.forEach(p => {
               if (!subcategories[p.subcategory]) subcategories[p.subcategory] = [];
               subcategories[p.subcategory].push(p);
           });
@@ -1022,52 +1023,48 @@
           for (let subName in subcategories) {
               html += `
                   <div class="subcategory-section">
-                      <h2 class="subcategory-title">${subName}</h2>
+                      <h3 class="subcategory-title">${subName}</h3>
                       <div class="products-grid">
               `;
 
-              subcategories[subName].forEach(prod => {
-                  // Создаем слайды картинок
-                  let slidesHtml = '';
-                  let dotsHtml = '';
-                  
-                  prod.img.forEach((imgUrl, i) => {
-                      slidesHtml += `<img src="${imgUrl}" class="${i === 0 ? 'active' : ''}" data-index="${i}" alt="${prod.title}" onclick="openProductLightbox(this)">`;
-                      dotsHtml += `<span class="slide-dot ${i === 0 ? 'active' : ''}"></span>`;
-                  });
+              subcategories[subName].forEach((p, pIndex) => {
+                  let imgElements = p.img.map((src, i) => `
+                      <img src="${src}" class="${i === 0 ? 'active' : ''}" data-index="${i}" alt="${p.title}" onclick="openLightbox(${JSON.stringify(p.img).replace(/"/g, '&quot;')}, ${i}, event)">
+                  `).join('');
 
-                  // Генерация таблицы цен
-                  let priceHtml = '';
-                  prod.priceTiers.forEach(tier => {
-                      priceHtml += `
-                          <div class="price-tier-row">
-                              <span class="tier-range">${tier.range}</span>
-                              <span class="tier-price">${tier.price}</span>
-                          </div>
-                      `;
-                  });
+                  let arrows = p.img.length > 1 ? `
+                      <button class="slide-arrow prev" onclick="changeSlide(this, -1, event)">‹</button>
+                      <button class="slide-arrow next" onclick="changeSlide(this, 1, event)">›</button>
+                  ` : '';
 
-                  // Текст для заказа в WhatsApp
-                  const waText = `Здравствуйте! Интересует модель: ${prod.title}. Категория: ${prod.subcategory}.`;
-                  const waLink = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(waText)}`;
+                  let dots = p.img.length > 1 ? `
+                      <div class="slide-dots">
+                          ${p.img.map((_, i) => `<span class="slide-dot ${i === 0 ? 'active' : ''}"></span>`).join('')}
+                      </div>
+                  ` : '';
+
+                  let priceRows = p.priceTiers.map(t => `
+                      <div class="price-tier-row">
+                          <span class="tier-range">${t.range}</span>
+                          <span class="tier-price">${t.price}</span>
+                      </div>
+                  `).join('');
+
+                  const textMessage = encodeURIComponent(`Здравствуйте! Интересует модель: ${p.title}`);
 
                   html += `
                       <div class="product-card">
                           <div class="product-img-wrapper">
-                              <div class="product-slides">${slidesHtml}</div>
-                              ${prod.img.length > 1 ? `
-                                  <button class="slide-arrow prev" onclick="changeSlide(this, -1)">‹</button>
-                                  <button class="slide-arrow next" onclick="changeSlide(this, 1)">›</button>
-                                  <div class="slide-dots">${dotsHtml}</div>
-                              ` : ''}
+                              <div class="product-slides">${imgElements}</div>
+                              ${arrows} ${dots}
                           </div>
                           <div class="product-content">
-                              <h3 class="product-title">${prod.title}</h3>
-                              <p class="product-description">${prod.desc}</p>
-                              <div class="product-meta">${prod.meta}</div>
-                              <div class="price-block-wrapper">${priceHtml}</div>
+                              <div class="product-title">${p.title}</div>
+                              <div class="product-description">${p.desc}</div>
+                              <div class="product-meta">${p.meta}</div>
+                              <div class="price-block-wrapper">${priceRows}</div>
                               <div class="product-footer">
-                                  <a href="${waLink}" target="_blank" class="order-btn">Обсудить заказ</a>
+                                  <a href="https://wa.me/${DATA.whatsappNumber}?text=${textMessage}" class="order-btn" target="_blank">Заказать расчет</a>
                               </div>
                           </div>
                       </div>
@@ -1078,58 +1075,48 @@
           }
 
           html += `</div></section>`;
-          document.getElementById("dynamic-content").innerHTML = html;
+          container.innerHTML = html;
+          window.scrollTo(0, 0);
       }
 
-      // Работа слайдера внутри карточки товара
-      function changeSlide(btn, direction) {
-          const wrapper = btn.parentElement;
+      // Слайдер внутри карточки товара
+      function changeSlide(btn, direction, event) {
+          event.stopPropagation();
+          const wrapper = btn.closest('.product-img-wrapper');
           const imgs = wrapper.querySelectorAll('.product-slides img');
           const dots = wrapper.querySelectorAll('.slide-dot');
-          let activeIdx = 0;
-
-          imgs.forEach((img, idx) => {
-              if (img.classList.contains('active')) activeIdx = idx;
+          
+          let activeIndex = 0;
+          imgs.forEach((img, i) => {
+              if (img.classList.contains('active')) activeIndex = i;
           });
 
-          imgs[activeIdx].classList.remove('active');
-          if (dots.length) dots[activeIdx].classList.remove('active');
+          imgs[activeIndex].classList.remove('active');
+          if (dots.length) dots[activeIndex].classList.remove('active');
 
-          activeIdx += direction;
-          if (activeIdx >= imgs.length) activeIdx = 0;
-          if (activeIdx < 0) activeIdx = imgs.length - 1;
+          let newIndex = activeIndex + direction;
+          if (newIndex >= imgs.length) newIndex = 0;
+          if (newIndex < 0) newIndex = imgs.length - 1;
 
-          imgs[activeIdx].classList.add('active');
-          if (dots.length) dots[activeIdx].classList.add('active');
+          imgs[newIndex].classList.add('active');
+          if (dots.length) dots[newIndex].classList.add('active');
       }
 
-      // Глобальные переменные для Лайтбокса
-      let currentLightboxType = ''; // 'portfolio' или 'product'
-      let currentLightboxList = [];
-      let currentLightboxIdx = 0;
-
-      function openPortfolioLightbox(idx) {
-          currentLightboxType = 'portfolio';
-          currentLightboxList = DATA.portfolio.map(item => item.img);
-          currentLightboxIdx = idx;
-          updateLightboxImg();
-      }
-
-      function openProductLightbox(imgElement) {
-          currentLightboxType = 'product';
-          const container = imgElement.parentElement;
-          const imgs = container.querySelectorAll('img');
-          currentLightboxList = Array.from(imgs).map(img => img.src);
-          currentLightboxIdx = parseInt(imgElement.getAttribute('data-index')) || 0;
-          updateLightboxImg();
-      }
-
-      function updateLightboxImg() {
+      // Полноэкранный просмотр картинок (Лайтбокс)
+      function openLightbox(imagesArray, index, event) {
+          event.stopPropagation();
+          currentLightboxImages = imagesArray;
+          currentLightboxIndex = index;
+          
           const modal = document.getElementById("lightbox-modal");
           const targetImg = document.getElementById("lightbox-target-img");
           
-          targetImg.src = currentLightboxList[currentLightboxIdx];
+          targetImg.src = currentLightboxImages[currentLightboxIndex];
           modal.classList.add("open");
+          
+          // Прячем стрелки в лайтбоксе, если фото всего одно
+          const arrows = modal.querySelectorAll('.lightbox-arrow');
+          arrows.forEach(a => a.style.display = currentLightboxImages.length > 1 ? 'flex' : 'none');
       }
 
       function closeLightbox() {
@@ -1137,1217 +1124,13 @@
       }
 
       function moveLightboxSlide(direction, event) {
-          event.stopPropagation(); // Чтобы не срабатывало закрытие кликом по фону
-          currentLightboxIdx += direction;
-          if (currentLightboxIdx >= currentLightboxList.length) currentLightboxIdx = 0;
-          if (currentLightboxIdx < 0) currentLightboxIdx = currentLightboxList.length - 1;
-          document.getElementById("lightbox-target-img").src = currentLightboxList[currentLightboxIdx];
-      }
-  </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Каталог продукции</title>
-  <style>
-      :root {
-          --bg-color: #f8f7f4; 
-          --text-main: #1e1d1a; 
-          --text-muted: #72706a;
-          --border-color: #e4e2db;
-          --card-bg: #ffffff; 
-          --accent-color: #2e2c29; 
-      }
-
-      * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-          font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-          -webkit-font-smoothing: antialiased;
-      }
-
-      body {
-          background-color: var(--bg-color);
-          color: var(--text-main);
-          line-height: 1.6;
-          padding-bottom: 140px; 
-      }
-
-      .container {
-          max-width: 1140px;
-          margin: 0 auto;
-          padding: 0 20px;
-          width: 100%;
-      }
-
-      /* === ШАПКА И СЕКЦИИ === */
-      header {
-          text-align: center;
-          padding: 60px 0 40px;
-          background-color: #ffffff; 
-          border-bottom: 1px solid var(--border-color);
-      }
-
-      .section-categories {
-          padding: 50px 0 60px;
-          background-color: var(--bg-color); 
-      }
-
-      .section-portfolio {
-          padding: 70px 0;
-          background-color: #f5f2eb; 
-          color: var(--text-main);
-          border-top: 1px solid var(--border-color);
-          border-bottom: 1px solid var(--border-color);
-      }
-      .section-portfolio .section-title {
-          color: var(--text-main);
-          margin-bottom: 40px;
-      }
-
-      .section-products {
-          padding: 40px 0 70px;
-          background-color: #ffffff; 
-      }
-
-      .back-nav-wrapper {
-          background-color: #ffffff;
-          padding-top: 30px;
-      }
-      .back-btn {
-          background: none;
-          border: none;
-          font-size: 0.9rem;
-          color: var(--text-main);
-          cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          transition: color 0.2s;
-      }
-      
-      @media (hover: hover) {
-          .back-btn:hover { color: var(--text-muted); }
-      }
-
-      .brand-logo {
-          cursor: pointer;
-          display: inline-block;
-          width: 100%;
-      }
-
-      .brand-text-heading {
-          font-size: 2.4rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 5px;
-          color: var(--text-main);
-          margin-top: 20px;
-          display: block;
-      }
-
-      .brand-desc {
-          font-size: 1rem;
-          color: var(--text-muted);
-          max-width: 600px;
-          margin: 15px auto 0;
-          font-weight: 300;
-          letter-spacing: 0.5px;
-          padding: 0 10px;
-      }
-
-      .instagram-link-wrapper {
-          margin-top: 20px;
-      }
-
-      .instagram-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          color: var(--text-main);
-          text-decoration: none;
-          font-size: 0.85rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          border: 1px solid var(--border-color);
-          padding: 10px 20px;
-          border-radius: 20px;
-          background: var(--card-bg);
-          transition: all 0.2s ease;
-      }
-
-      @media (hover: hover) {
-          .instagram-btn:hover {
-              border-color: var(--text-main);
-              background: #fdfdfc;
-              transform: translateY(-1px);
-          }
-      }
-
-      /* СЕТКИ */
-      .main-categories-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 30px;
-          padding: 15px 0 10px;
-      }
-
-      .category-menu-card {
-          background: var(--card-bg);
-          border: 1px solid var(--border-color);
-          border-radius: 6px;
-          padding: 50px 40px;
-          text-align: center;
-          cursor: pointer;
-          box-shadow: 0 4px 20px rgba(46, 44, 41, 0.04); 
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          min-height: 220px;
-      }
-
-      @media (hover: hover) {
-          .category-menu-card:hover {
-              border-color: #c9c6bb;
-              box-shadow: 0 20px 38px rgba(46, 44, 41, 0.08);
-              transform: translateY(-4px);
-          }
-      }
-
-      .category-menu-title {
-          font-size: 1.4rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          margin-bottom: 12px;
-          color: var(--text-main);
-      }
-
-      .category-menu-count {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 600;
-          margin-top: auto;
-      }
-
-      .section-title {
-          font-size: 1.4rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          text-align: center;
-      }
-
-      .portfolio-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-          gap: 20px;
-      }
-
-      .portfolio-card {
-          background: var(--card-bg); 
-          border: 1px solid var(--border-color);
-          border-radius: 6px;
-          overflow: hidden;
-          box-shadow: 0 4px 15px rgba(46, 44, 41, 0.03);
-          transition: all 0.25s ease;
-      }
-
-      @media (hover: hover) {
-          .portfolio-card:hover {
-              transform: translateY(-4px);
-              box-shadow: 0 15px 30px rgba(46, 44, 41, 0.08);
-              border-color: #c9c6bb;
-          }
-      }
-
-      .portfolio-img-wrapper {
-          position: relative;
-          width: 100%;
-          padding-top: 100%; 
-          background-color: #ffffff;
-          overflow: hidden;
-      }
-
-      .portfolio-img-wrapper img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          cursor: zoom-in;
-      }
-
-      /* КАРТОЧКИ ТОВАРОВ */
-      .subcategory-section { margin-bottom: 60px; }
-
-      .subcategory-title {
-          font-size: 1.5rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          margin-bottom: 35px;
-          border-left: 4px solid var(--accent-color);
-          padding-left: 15px;
-          color: var(--text-main);
-      }
-
-      .products-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-          gap: 35px;
-      }
-
-      .product-card {
-          background: var(--card-bg);
-          border: 1px solid var(--border-color);
-          border-radius: 6px;
-          display: flex;
-          flex-direction: column;
-          box-shadow: 0 4px 20px rgba(46, 44, 41, 0.04);
-          overflow: hidden;
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      }
-
-      @media (hover: hover) {
-          .product-card:hover {
-              border-color: #c9c6bb;
-              box-shadow: 0 20px 40px rgba(46, 44, 41, 0.09);
-              transform: translateY(-4px);
-          }
-      }
-
-      .product-img-wrapper {
-          position: relative;
-          width: 100%;
-          padding-top: 75%;
-          background-color: #ffffff;
-          overflow: hidden;
-          border-bottom: 1px solid var(--border-color);
-      }
-
-      .product-slides {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-      }
-
-      .product-slides img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          opacity: 0;
-          z-index: 1;
-          transition: opacity 0.4s ease;
-          cursor: zoom-in;
-      }
-
-      .product-slides img.active {
-          opacity: 1;
-          z-index: 2;
-      }
-
-      .slide-arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 10;
-          background: rgba(255, 255, 255, 0.9);
-          border: 1px solid rgba(0, 0, 0, 0.05);
-          width: 40px; 
-          height: 40px;
-          border-radius: 50%;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.3rem;
-          color: var(--text-main);
-          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-          transition: all 0.2s ease;
-          user-select: none;
-          -webkit-tap-highlight-color: transparent;
-      }
-
-      @media (hover: hover) {
-          .slide-arrow:hover {
-              background: #ffffff;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          }
-      }
-
-      .slide-arrow.prev { left: 12px; }
-      .slide-arrow.next { right: 12px; }
-
-      .slide-dots {
-          position: absolute;
-          bottom: 12px;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 10;
-          display: flex;
-          gap: 6px;
-      }
-
-      .slide-dot {
-          width: 6px;
-          height: 6px;
-          background: rgba(0, 0, 0, 0.2);
-          border-radius: 50%;
-          transition: all 0.25s ease;
-      }
-
-      .slide-dot.active {
-          background: var(--text-main);
-          width: 16px;
-          border-radius: 3px;
-      }
-
-      /* ПОЛНОЭКРАННЫЙ ПРОСМОТР (ЛАЙТБОКС) */
-      .lightbox-modal {
-          display: none;
-          position: fixed;
-          z-index: 9999;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(15, 14, 12, 0.96);
-          justify-content: center;
-          align-items: center;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-      }
-
-      .lightbox-modal.open {
-          display: flex;
-          opacity: 1;
-      }
-
-      .lightbox-modal img {
-          max-width: 92%;
-          max-height: 85%;
-          object-fit: contain;
-          border-radius: 4px;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-          transform: scale(0.95);
-          transition: transform 0.3s ease, opacity 0.2s ease;
-      }
-
-      .lightbox-modal.open img { transform: scale(1); }
-
-      .lightbox-close-btn {
-          position: absolute;
-          top: 20px;
-          right: 25px;
-          color: #ffffff;
-          font-size: 38px;
-          font-weight: 300;
-          cursor: pointer;
-          line-height: 1;
-          user-select: none;
-          z-index: 10010;
-          width: 45px;
-          height: 45px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      }
-
-      /* Стрелки внутри лайтбокса */
-      .lightbox-arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 10005;
-          background: rgba(255, 255, 255, 0.1);
-          border: none;
-          color: #ffffff;
-          width: 54px;
-          height: 54px;
-          border-radius: 50%;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2rem;
-          transition: background 0.2s, transform 0.2s;
-          user-select: none;
-          -webkit-tap-highlight-color: transparent;
-      }
-      @media (hover: hover) {
-          .lightbox-arrow:hover { background: rgba(255, 255, 255, 0.25); }
-      }
-      .lightbox-arrow:active { transform: translateY(-50%) scale(0.92); }
-      .lightbox-arrow.prev { left: 25px; }
-      .lightbox-arrow.next { right: 25px; }
-
-      .product-content {
-          padding: 26px;
-          display: flex;
-          flex-direction: column;
-          flex-grow: 1;
-      }
-
-      .product-title {
-          font-size: 1.2rem;
-          font-weight: 700;
-          margin-bottom: 10px;
-          color: var(--text-main);
-      }
-
-      .product-description {
-          font-size: 0.95rem;
-          color: var(--text-muted);
-          font-weight: 300;
-          margin-bottom: 20px;
-          flex-grow: 1;
-      }
-
-      .product-meta {
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          color: #8c8a81;
-          margin-bottom: 20px;
-          padding-top: 12px;
-          border-top: 1px dashed var(--border-color);
-      }
-
-      .price-block-wrapper {
-          margin-bottom: 22px;
-          padding: 14px 16px;
-          background: #fdfdfc;
-          border: 1px solid var(--border-color);
-          border-radius: 4px;
-      }
-
-      .price-tier-row {
-          display: flex;
-          justify-content: space-between;
-          font-size: 0.9rem;
-          padding: 6px 0;
-          border-bottom: 1px solid #f1f0ec;
-      }
-      .price-tier-row:last-child { border-bottom: none; }
-      
-      .tier-range { color: var(--text-muted); font-weight: 400; }
-      .tier-price { font-weight: 700; color: var(--text-main); }
-
-      .product-footer { margin-top: auto; }
-
-      .order-btn {
-          display: block;
-          text-align: center;
-          background: transparent;
-          border: 1px solid var(--accent-color);
-          color: var(--accent-color);
-          padding: 14px 20px;
-          font-size: 0.85rem;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          text-decoration: none;
-          font-weight: 600;
-          border-radius: 4px;
-          transition: all 0.2s ease;
-          -webkit-tap-highlight-color: transparent;
-      }
-
-      @media (hover: hover) {
-          .order-btn:hover {
-              background: var(--accent-color);
-              color: #ffffff;
-          }
-      }
-
-      .sticky-footer-btn {
-          position: fixed;
-          bottom: 30px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: rgba(255, 255, 255, 0.95); 
-          backdrop-filter: blur(10px);           
-          -webkit-backdrop-filter: blur(10px);
-          color: var(--text-main);
-          border: 1px solid var(--text-main);
-          padding: 18px 45px;
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          font-weight: 700;
-          text-decoration: none;
-          border-radius: 30px;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-          z-index: 1000;
-          white-space: nowrap;
-          transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
-          -webkit-tap-highlight-color: transparent;
-      }
-
-      @media (hover: hover) {
-          .sticky-footer-btn:hover {
-              background: var(--text-main);
-              color: #ffffff;
-              transform: translateX(-50%) translateY(-3px);
-              box-shadow: 0 15px 35px rgba(30, 29, 26, 0.18);
-          }
-      }
-
-      /* МЕДИА-ЗАПРОСЫ */
-      @media (max-width: 768px) {
-          header { padding: 45px 0 25px; }
-          .brand-text-heading { font-size: 1.8rem; letter-spacing: 3px; }
-          .brand-desc { font-size: 0.95rem; }
-          
-          .main-categories-grid { grid-template-columns: 1fr; gap: 20px; }
-          .category-menu-card { min-height: 160px; padding: 35px 25px; }
-          .category-menu-title { font-size: 1.25rem; }
-
-          .subcategory-title { font-size: 1.25rem; margin-bottom: 25px; }
-          .products-grid { grid-template-columns: 1fr; gap: 25px; }
-          
-          .portfolio-grid { 
-              grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
-              gap: 12px; 
-          }
-          
-          .slide-arrow { width: 36px; height: 36px; font-size: 1.1rem; }
-          
-          .lightbox-arrow { width: 44px; height: 44px; font-size: 1.5rem; }
-          .lightbox-arrow.prev { left: 10px; }
-          .lightbox-arrow.next { right: 10px; }
-
-          .sticky-footer-btn { 
-              width: calc(100% - 30px); 
-              text-align: center; 
-              bottom: 15px; 
-              border-radius: 12px;
-              padding: 16px 20px;
-              font-size: 0.85rem;
-          }
-      }
-  </style>
-</head>
-<body>
-
-  <header>
-      <div class="container">
-          <div class="brand-logo" id="brand-logo" onclick="showMainMenu()"></div>
-          <div class="brand-desc" id="brand-desc">Загрузка...</div>
-          <div class="instagram-link-wrapper" id="instagram-block"></div>
-      </div>
-  </header>
-
-  <div class="back-nav-wrapper" id="back-nav-block" style="display: none;">
-      <div class="container">
-          <button class="back-btn" onclick="showMainMenu()">← В главное меню</button>
-      </div>
-  </div>
-
-  <div id="dynamic-content"></div>
-
-  <a href="#" class="sticky-footer-btn" id="main-cta-btn" target="_blank">Индивидуальный расчет</a>
-
-  <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
-      <span class="lightbox-close-btn">&times;</span>
-      <button class="lightbox-arrow prev" onclick="moveLightboxSlide(-1, event)">‹</button>
-      <img id="lightbox-target-img" src="" alt="Увеличенное изображение">
-      <button class="lightbox-arrow next" onclick="moveLightboxSlide(1, event)">›</button>
-  </div>
-
-  <script>
-      const DATA = {
-          whatsappNumber: "77057003111", 
-          instagramUrl: "https://instagram.com/woody_brand.kz", 
-          brandName: "WOODY BRAND",
-          brandLogo: "images/logo.png", 
-          brandDesc: "Производство изделий из дерева для ресторанов и бизнеса в Астане",
-          
-          categories: [
-              { id: "massiv", name: "Массив дерева", desc: "Доски для стейков, премиум органайзеры, пеналы под приборы" },
-              { id: "fanera", name: "Изделия из фанеры", desc: "Салфетницы, подносы, RESERVED" }
-          ],
-
-          portfolio: [
-              { img: "images/20260620_150118 копия.jpg" },
-              { img: "images/20260608_144915 копия.jpg" },
-              { img: "images/20260407_100406 копия.jpg" },
-              { img: "images/2026-06-12 00-49-18.JPG" },
-              { img: "images/2026-03-11 04-27-28.JPG" },
-              { img: "images/2026-06-21 15-48-06.JPG" },
-              { img: "images/20260414_140912 копия.jpg" },
-              { img: "images/2026-04-11 17-54-23.JPG" }
-          ],
-
-          products: [
-              {
-                  category: "massiv",
-                  subcategory: "Доски для подачи блюд",
-                  title: "Доска для Стейка DST-M-01",
-                  desc: "Материал: Ясень / Размер: 35х25x2 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/2026-06-20 01-21-35.JPG, images/2026-06-20 01-22-05.JPG",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "11 500 ₸" },
-                      { range: "10–40 шт.", price: "9 700 ₸" },
-                      { range: "от 50 шт.", price: "8 300 ₸" }
-                  ]
-              },
-              {
-                  category: "massiv",
-                  subcategory: "Доски для подачи блюд",
-                  title: "Доска для Бургера DDB-M-01",
-                  desc: "Материал: Ясень / Размер: 30х20x2 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/20260620_010557.jpg, images/20260620_010539.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "11 500 ₸" },
-                      { range: "10–40 шт.", price: "9 700 ₸" },
-                      { range: "от 50 шт.", price: "8 300 ₸" }
-                  ]
-              },
-              {
-                  category: "massiv",
-                  subcategory: "Доски для подачи блюд",
-                  title: "Доска для Сета DDS-M-01",
-                  desc: "Материал: Ясень / Размер: 30х30x2 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/DDS-M-01 1.jpg, images/DDS-M-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "11 500 ₸" },
-                      { range: "10–40 шт.", price: "9 700 ₸" },
-                      { range: "от 50 шт.", price: "8 300 ₸" }
-                  ]
-              },
-              {
-                  category: "massiv",
-                  subcategory: "Пеналы под приборы",
-                  title: "Пенал под приборы PPP-M-L-01",
-                  desc: "Материал: Бук / Размер: 25х12x4 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/PPP-M-L-01 1.jpg, images/PPP-M-L-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "8 600 ₸" },
-                      { range: "10–40 шт.", price: "7 300 ₸" },
-                      { range: "от 50 шт.", price: "6 200 ₸" }
-                  ]
-              },
-              {
-                  category: "massiv",
-                  subcategory: "Пеналы под приборы",
-                  title: "Пенал под приборы PPP-M-S-01",
-                  desc: "Материал: Бук / Размер: 25х6,5x4 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/PPP-M-S-01 1.jpg, images/PPP-M-S-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "6 500 ₸" },
-                      { range: "10–40 шт.", price: "5 500 ₸" },
-                      { range: "от 50 шт.", price: "4 700 ₸" }
-                  ]
-              },
-              {
-                  category: "massiv",
-                  subcategory: "Пеналы под приборы",
-                  title: "Пенал под приборы PPP-M-M-01",
-                  desc: "Материал: Бук / Размер: 25х10x2 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/PPP-M-M-01 1.jpg, images/PPP-M-M-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "5 300 ₸" },
-                      { range: "10–40 шт.", price: "4 500 ₸" },
-                      { range: "от 50 шт.", price: "3 800 ₸" }
-                  ]
-              },
-              {
-                  category: "massiv",
-                  subcategory: "Органайзеры",
-                  title: "Органайзер ORG-M-01",
-                  desc: "Материал: Бук / Размер: 16х11x8 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/ORG-M-01 1.jpg, images/ORG-M-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "7 900 ₸" },
-                      { range: "10–40 шт.", price: "6 700 ₸" },
-                      { range: "от 50 шт.", price: "5 700 ₸" }
-                  ]
-              },
-              {
-                  category: "massiv",
-                  subcategory: "Органайзеры",
-                  title: "Органайзер ORG-M-02",
-                  desc: "Материал: Бук / Размер: 16х11x8 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/ORG-M-02 1.jpg, images/ORG-M-02 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "9 700 ₸" },
-                      { range: "10–40 шт.", price: "8 200 ₸" },
-                      { range: "от 50 шт.", price: "7 000 ₸" }
-                  ]
-              }, 
-              {
-                  category: "massiv",
-                  subcategory: "Органайзеры",
-                  title: "Органайзер ORG-M-03",
-                  desc: "Материал: Бук, Акрил / Размер: 18х13x11 см",
-                  meta: "Цены с учётом брендирования",
-                  img: "images/ORG-M-03 1.jpg, images/ORG-M-03 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "9 700 ₸" },
-                      { range: "10–40 шт.", price: "8 200 ₸" },
-                      { range: "от 50 шт.", price: "7 000 ₸" }
-                  ]
-              }, 
-              {
-                  category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-01",
-                  desc: "Материал: Фанера 6 мм / Размер: 20*15*6 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/ORG-F-01 1.jpg, images/ORG-F-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 800 ₸" },
-                      { range: "10–40 шт.", price: "3 600 ₸" },
-                      { range: "от 50 шт.", price: "3 200 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-02",
-                  desc: "Материал: Фанера 6 мм / Размер: 16*11*14 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/ORG-F-02 1.jpg, images/ORG-F-02 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-03",
-                  desc: "Материал: Фанера 6 мм / Размер: 15*10*11 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/ORG-F-03 1.jpg, images/ORG-F-03 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 000 ₸" },
-                      { range: "10–40 шт.", price: "3 000 ₸" },
-                      { range: "от 50 шт.", price: "2 700 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-04",
-                  desc: "Материал: Фанера 6 мм / Размер: 27*14*6 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/ORG-F-04 1.jpg, images/ORG-F-04 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-05",
-                  desc: "Материал: Фанера 6 мм / Размер: 21*14*6 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/ORG-F-05 1.jpg, images/ORG-F-05 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-06",
-                  desc: "Материал: Фанера 6 мм / Размер: 23*14*8 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/ORG-F-06 1.jpg, images/ORG-F-06 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 500 ₸" },
-                      { range: "10–40 шт.", price: "3 400 ₸" },
-                      { range: "от 50 шт.", price: "3 100 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Салфетницы",
-                  title: "Салфетница ORG-F-07",
-                  desc: "Материал: Фанера 6 мм / Размер: 21*15*6 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/ORG-F-07 1.jpg, images/ORG-F-07 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Подносы",
-                  title: "Поднос PDNS-F-01",
-                  desc: "Материал: Фанера 6 мм / Размер: 30*20*1,2 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/PDNS-F-01 1.jpg, images/PDNS-F-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Подносы",
-                  title: "Поднос PDNS-F-02",
-                  desc: "Материал: Фанера 6 мм / Размер: 40*30*5 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/PDNS-F-02 1.jpg, images/PDNS-F-02 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "6 900 ₸" },
-                      { range: "10–40 шт.", price: "5 200 ₸" },
-                      { range: "от 50 шт.", price: "4 600 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Подносы",
-                  title: "Поднос PDNS-F-03",
-                  desc: "Материал: Фанера 6 мм / Размер: 33*21*1,2 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/PDNS-F-03 1.jpg, images/PDNS-F-03 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Пеналы под приборы",
-                  title: "Пенал под приборы PPP-F-01",
-                  desc: "Материал: Фанера 6 мм / Размер: 33*21*1,2 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/PPP-F-01 1.jpg, images/PPP-F-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "3 600 ₸" },
-                      { range: "10–40 шт.", price: "2 700 ₸" },
-                      { range: "от 50 шт.", price: "2 400 ₸" }
-                  ] 
-              },
-              {
-                  category: "fanera",
-                  subcategory: "Резерв",
-                  title: "Резерв RSR-F-01",
-                  desc: "Материал: Фанера 6 мм / Размер: 23*5*8 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/RSR-F-01 1.jpg, images/RSR-F-01 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "3 400 ₸" },
-                      { range: "10–40 шт.", price: "2 600 ₸" },
-                      { range: "от 50 шт.", price: "2 300 ₸" }
-                  ] 
-              },
-{
-                  category: "fanera",
-                  subcategory: "Резерв",
-                  title: "Резерв RSR-F-02",
-                  desc: "Материал: Фанера 6 мм / Размер: 25*7*19 см.",
-                  meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
-                  img: "images/RSR-F-02 1.jpg, images/RSR-F-02 2.jpg",
-                  priceTiers: [
-                      { range: "5–9 шт.", price: "3 400 ₸" },
-                      { range: "10–40 шт.", price: "2 600 ₸" },
-                      { range: "от 50 шт.", price: "2 300 ₸" }
-                  ] 
-              }
-          ]
-      };
-
-      // Глобальное состояние для полноэкранного слайдера
-      let lightboxImages = [];
-      let lightboxCurrentIdx = 0;
-
-      function openProductLightboxFromDOM(imgElement, event) {
-          if (event) event.stopPropagation();
-          const slidesContainer = imgElement.closest('.product-slides');
-          lightboxImages = Array.from(slidesContainer.querySelectorAll('img')).map(img => img.src);
-          lightboxCurrentIdx = lightboxImages.indexOf(imgElement.src);
-          if (lightboxCurrentIdx < 0) lightboxCurrentIdx = 0;
-          openLightbox();
-      }
-
-      function openPortfolioLightboxFromDOM(imgElement, event) {
-          if (event) event.stopPropagation();
-          const grid = imgElement.closest('.portfolio-grid');
-          lightboxImages = Array.from(grid.querySelectorAll('img')).map(img => img.src);
-          lightboxCurrentIdx = lightboxImages.indexOf(imgElement.src);
-          if (lightboxCurrentIdx < 0) lightboxCurrentIdx = 0;
-          openLightbox();
-      }
-
-      function openLightbox() {
-          const modal = document.getElementById('lightbox-modal');
-          const modalImg = document.getElementById('lightbox-target-img');
-          
-          modalImg.src = lightboxImages[lightboxCurrentIdx];
-          modal.classList.add('open');
-          document.body.style.overflow = 'hidden';
-
-          const prevArrow = modal.querySelector('.lightbox-arrow.prev');
-          const nextArrow = modal.querySelector('.lightbox-arrow.next');
-          if (lightboxImages.length > 1) {
-              prevArrow.style.display = 'flex';
-              nextArrow.style.display = 'flex';
-          } else {
-              prevArrow.style.display = 'none';
-              nextArrow.style.display = 'none';
-          }
-      }
-
-      function closeLightbox() {
-          const modal = document.getElementById('lightbox-modal');
-          modal.classList.remove('open');
-          document.body.style.overflow = '';
-      }
-
-      function moveLightboxSlide(direction, event) {
-          if (event) event.stopPropagation();
-          if (lightboxImages.length <= 1) return;
-
-          lightboxCurrentIdx = (lightboxCurrentIdx + direction + lightboxImages.length) % lightboxImages.length;
-          const modalImg = document.getElementById('lightbox-target-img');
-          
-          modalImg.style.opacity = '0';
-          setTimeout(() => {
-              modalImg.src = lightboxImages[lightboxCurrentIdx];
-              modalImg.style.opacity = '1';
-          }, 150);
-      }
-
-      function moveSlide(btn, direction, event) {
           event.stopPropagation();
-          const wrapper = btn.closest('.product-img-wrapper');
-          let currentIdx = parseInt(wrapper.getAttribute('data-current')) || 0;
-          const totalSlides = parseInt(wrapper.getAttribute('data-total')) || 1;
+          currentLightboxIndex += direction;
+          if (currentLightboxIndex >= currentLightboxImages.length) currentLightboxIndex = 0;
+          if (currentLightboxIndex < 0) currentLightboxIndex = currentLightboxImages.length - 1;
           
-          currentIdx = (currentIdx + direction + totalSlides) % totalSlides;
-          wrapper.setAttribute('data-current', currentIdx);
-          
-          const imgs = wrapper.querySelectorAll('.product-slides img');
-          imgs.forEach((img, idx) => img.classList.toggle('active', idx === currentIdx));
-          
-          const dots = wrapper.querySelectorAll('.slide-dot');
-          dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentIdx));
+          document.getElementById("lightbox-target-img").src = currentLightboxImages[currentLightboxIndex];
       }
-
-      function initSite() {
-          let logoHtml = '';
-          if (DATA.brandLogo) {
-              logoHtml += `<img src="${DATA.brandLogo}" alt="${DATA.brandName}" style="max-height: 80px; width: auto; display: block; margin: 0 auto;" onerror="this.style.display='none'">`;
-          }
-          logoHtml += `<span class="brand-text-heading">${DATA.brandName}</span>`;
-          document.getElementById('brand-logo').innerHTML = logoHtml;
-          document.getElementById('brand-desc').innerText = DATA.brandDesc;
-          
-          if (DATA.instagramUrl) {
-              document.getElementById('instagram-block').innerHTML = `
-                  <a href="${DATA.instagramUrl}" class="instagram-btn" target="_blank">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:3px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                      Instagram
-                  </a>
-              `;
-          }
-          
-          document.getElementById('main-cta-btn').href = `https://wa.me/${DATA.whatsappNumber}`;
-          showMainMenu();
-
-          // Жесты на мобилках
-          let touchStartX = 0;
-          let touchEndX = 0;
-          const modal = document.getElementById('lightbox-modal');
-          
-          modal.addEventListener('touchstart', e => {
-              touchStartX = e.changedTouches[0].screenX;
-          }, {passive: true});
-          
-          modal.addEventListener('touchend', e => {
-              touchEndX = e.changedTouches[0].screenX;
-              const threshold = 50;
-              if (touchEndX < touchStartX - threshold) moveLightboxSlide(1); 
-              if (touchEndX > touchStartX + threshold) moveLightboxSlide(-1);
-          }, {passive: true});
-      }
-
-      document.addEventListener('keydown', e => {
-          const modal = document.getElementById('lightbox-modal');
-          if (modal.classList.contains('open')) {
-              if (e.key === 'ArrowLeft') moveLightboxSlide(-1);
-              if (e.key === 'ArrowRight') moveLightboxSlide(1);
-              if (e.key === 'Escape') closeLightbox();
-          }
-      });
-
-      function showMainMenu() {
-          document.getElementById('back-nav-block').style.display = 'none';
-          const contentArea = document.getElementById('dynamic-content');
-          
-          let html = `
-              <section class="section-categories">
-                  <div class="container">
-                      <div class="main-categories-grid">`;
-          
-          DATA.categories.forEach(cat => {
-              // УБРАНА НАДПИСЬ С КОЛИЧЕСТВОМ ПОЗИЦИЙ, ОСТАВЛЕН ТОЛЬКО СТИЛЬНЫЙ УКАЗАТЕЛЬ ПЕРЕХОДА
-              html += `
-                  <div class="category-menu-card" onclick="diveIntoCategory('${cat.id}')">
-                      <h3 class="category-menu-title">${cat.name}</h3>
-                      <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:20px; font-weight:300;">${cat.desc || ''}</p>
-                      <span class="category-menu-count">Перейти →</span>
-                  </div>
-              `;
-          });
-          
-          html += `    </div>
-                  </div>
-              </section>`;
-          
-          if (DATA.portfolio && DATA.portfolio.length > 0) {
-              html += `
-                  <section class="section-portfolio">
-                      <div class="container">
-                          <h2 class="section-title">Наши работы</h2>
-                          <div class="portfolio-grid">`;
-              
-              DATA.portfolio.forEach(item => {
-                  html += `
-                      <div class="portfolio-card">
-                          <div class="portfolio-img-wrapper">
-                              <img src="${item.img}" alt="Woody Brand Work" onclick="openPortfolioLightboxFromDOM(this, event)" onerror="this.src='https://via.placeholder.com/300?text=%D0%A4%D0%BE%D1%82%D0%BE'">
-                          </div>
-                      </div>
-                  `;
-              });
-              
-              html += `   </div>
-                      </div>
-                  </section>`;
-          }
-          
-          contentArea.innerHTML = html;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      function diveIntoCategory(catId) {
-          document.getElementById('back-nav-block').style.display = 'block';
-          const contentArea = document.getElementById('dynamic-content');
-          
-          const filteredProducts = DATA.products.filter(p => p.category === catId);
-          const subcategories = [...new Set(filteredProducts.map(p => p.subcategory))];
-          
-          if (filteredProducts.length === 0) {
-              contentArea.innerHTML = `
-                  <section class="section-products">
-                      <div class="container">
-                          <p style="text-align:center; color:var(--text-muted); padding:40px;">В этой категории пока нет товаров. Скоро добавим!</p>
-                      </div>
-                  </section>`;
-              return;
-          }
-
-          let html = `<section class="section-products"><div class="container">`;
-          
-          subcategories.forEach(sub => {
-              html += `
-                  <div class="subcategory-section">
-                      <h2 class="subcategory-title">${sub}</h2>
-                      <div class="products-grid">`;
-              
-              const subProducts = filteredProducts.filter(p => p.category === catId && p.subcategory === sub);
-              subProducts.forEach(p => {
-                  let priceHtml = '';
-                  if (p.priceTiers && p.priceTiers.length > 0) {
-                      priceHtml = `<div class="price-block-wrapper">`;
-                      p.priceTiers.forEach(tier => {
-                          priceHtml += `
-                              <div class="price-tier-row">
-                                  <span class="tier-range">${tier.range}</span>
-                                  <span class="tier-price">${tier.price}</span>
-                              </div>
-                          `;
-                      });
-                      priceHtml += `</div>`;
-                  } else {
-                      priceHtml = `<div class="single-price">${p.price || 'Цена по запросу'}</div>`;
-                  }
-
-                  const waText = encodeURIComponent("Здравствуйте! Интересует изделие \"" + p.title + "\". Хочу рассчитать стоимость партии, отправьте, пожалуйста, параметры.");
-                  let imgList = p.img ? p.img.split(',').map(s => s.trim()) : ['images/placeholder.jpg'];
-                  const hasMultiple = imgList.length > 1;
-                  
-                  let sliderControlsHtml = '';
-                  if (hasMultiple) {
-                      sliderControlsHtml += `
-                          <button class="slide-arrow prev" onclick="moveSlide(this, -1, event)">‹</button>
-                          <button class="slide-arrow next" onclick="moveSlide(this, 1, event)">›</button>
-                          <div class="slide-dots">
-                              ${imgList.map((_, idx) => `<span class="slide-dot ${idx === 0 ? 'active' : ''}"></span>`).join('')}
-                          </div>
-                      `;
-                  }
-
-                  html += `
-                      <div class="product-card">
-                          <div class="product-img-wrapper" data-current="0" data-total="${imgList.length}">
-                              <div class="product-slides">
-                                  ${imgList.map((imgUrl, idx) => `
-                                      <img src="${imgUrl}" class="${idx === 0 ? 'active' : ''}" alt="${p.title}" onclick="openProductLightboxFromDOM(this, event)" onerror="this.src='https://via.placeholder.com/400x300?text=%D0%A4%D0%BE%D1%82%D0%BE'">
-                                  `).join('')}
-                              </div>
-                              ${sliderControlsHtml}
-                          </div>
-                          <div class="product-content">
-                              <h3 class="product-title">${p.title}</h3>
-                              <p class="product-description">${p.desc}</p>
-                              <div class="product-meta">${p.meta}</div>
-                              ${priceHtml}
-                              <div class="product-footer">
-                                  <a href="https://wa.me/${DATA.whatsappNumber}?text=${waText}" class="order-btn" target="_blank">Запросить расчет партии</a>
-                              </div>
-                          </div>
-                      </div>
-                  `;
-              });
-              html += `</div></div>`;
-          });
-          
-          html += `</div></section>`;
-          contentArea.innerHTML = html;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      window.onload = initSite;
   </script>
 </body>
 </html>
