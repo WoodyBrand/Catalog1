@@ -161,7 +161,7 @@
           background: var(--card-bg);
           border: 1px solid var(--border-color);
           border-radius: 6px;
-          padding: 50px 40px;
+          padding: 45px 40px;
           text-align: center;
           cursor: pointer;
           box-shadow: 0 4px 20px rgba(46, 44, 41, 0.04); 
@@ -169,7 +169,7 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          min-height: 220px;
+          min-height: 180px;
       }
 
       @media (hover: hover) {
@@ -187,15 +187,6 @@
           letter-spacing: 2px;
           margin-bottom: 12px;
           color: var(--text-main);
-      }
-
-      .category-menu-count {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 600;
-          margin-top: auto;
       }
 
       .section-title {
@@ -572,7 +563,7 @@
           .brand-desc { font-size: 0.95rem; }
           
           .main-categories-grid { grid-template-columns: 1fr; gap: 20px; }
-          .category-menu-card { min-height: 160px; padding: 35px 25px; }
+          .category-menu-card { min-height: 140px; padding: 35px 25px; }
           .category-menu-title { font-size: 1.25rem; }
 
           .subcategory-title { font-size: 1.25rem; margin-bottom: 25px; }
@@ -970,12 +961,10 @@
           const container = document.getElementById("dynamic-content");
           
           let categoriesHtml = DATA.categories.map(cat => {
-              const count = DATA.products.filter(p => p.category === cat.id).length;
               return `
                   <div class="category-menu-card" onclick="showCategory('${cat.id}')">
                       <div class="category-menu-title">${cat.name}</div>
-                      <div style="font-size:0.95rem; color:var(--text-muted); margin-bottom:15px;">${cat.desc}</div>
-                      <div class="category-menu-count">${count} моделей</div>
+                      <div style="font-size:0.95rem; color:var(--text-muted);">${cat.desc}</div>
                   </div>
               `;
           }).join('');
@@ -1050,7 +1039,7 @@
                       </div>
                   `).join('');
 
-                  const textMessage = encodeURIComponent(`Здравствуйте! Интересует модель: ${p.title}`);
+                  const textMessage = encodeURIComponent("Здравствуйте! Интересует модель: " + p.title);
 
                   html += `
                       <div class="product-card">
