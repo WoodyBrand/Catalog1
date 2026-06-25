@@ -44,39 +44,8 @@
           border-bottom: 1px solid var(--border-color);
       }
 
-      /* === БЛОК: ИНФОРМАЦИЯ О ПРОИЗВОДСТВЕ === */
-      .custom-order-banner {
-          background-color: #ffffff;
-          padding: 30px 0 10px;
-          text-align: center;
-      }
-      .custom-order-box {
-          background-color: #f5f2eb;
-          border: 1px solid var(--border-color);
-          border-radius: 6px;
-          padding: 25px 30px;
-          max-width: 800px;
-          margin: 0 auto;
-          box-shadow: 0 2px 10px rgba(46, 44, 41, 0.02);
-      }
-      .custom-order-title {
-          font-size: 1.1rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          margin-bottom: 8px;
-          color: var(--text-main);
-      }
-      .custom-order-text {
-          font-size: 0.95rem;
-          color: var(--text-muted);
-          font-weight: 300;
-          max-width: 680px;
-          margin: 0 auto;
-      }
-
       .section-categories {
-          padding: 30px 0 60px; 
+          padding: 50px 0 60px;
           background-color: var(--bg-color); 
       }
 
@@ -192,7 +161,7 @@
           background: var(--card-bg);
           border: 1px solid var(--border-color);
           border-radius: 6px;
-          padding: 50px 40px;
+          padding: 45px 40px;
           text-align: center;
           cursor: pointer;
           box-shadow: 0 4px 20px rgba(46, 44, 41, 0.04); 
@@ -200,7 +169,7 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          min-height: 220px;
+          min-height: 180px;
       }
 
       @media (hover: hover) {
@@ -287,7 +256,7 @@
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
           gap: 35px;
-      }
+       }
 
       .product-card {
           background: var(--card-bg);
@@ -336,7 +305,7 @@
           z-index: 1;
           transition: opacity 0.4s ease;
           cursor: zoom-in;
-       }
+      }
 
       .product-slides img.active {
           opacity: 1;
@@ -347,7 +316,7 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 15; 
+          z-index: 10;
           background: rgba(255, 255, 255, 0.9);
           border: 1px solid rgba(0, 0, 0, 0.05);
           width: 40px; 
@@ -399,8 +368,8 @@
           border-radius: 3px;
        }
 
-      /* ПОЛНОЭКРАННЫЙ ПРОСМОТР (ЛАЙТБОКС) */
-      .lightbox-modal {
+      /* ПОЛНОЭКРАННЫЙ ПРОСМОТР (ЛАЙТБОКС) И МОДАЛКА КОРЗИНЫ */
+      .lightbox-modal, .cart-modal {
           display: none;
           position: fixed;
           z-index: 9999;
@@ -415,7 +384,7 @@
           transition: opacity 0.3s ease;
       }
 
-      .lightbox-modal.open {
+      .lightbox-modal.open, .cart-modal.open {
           display: flex;
           opacity: 1;
       }
@@ -432,7 +401,7 @@
 
       .lightbox-modal.open img { transform: scale(1); }
 
-      .lightbox-close-btn {
+      .lightbox-close-btn, .cart-close-btn {
           position: absolute;
           top: 20px;
           right: 25px;
@@ -531,41 +500,187 @@
 
       .product-footer { margin-top: auto; }
 
-      .order-btn {
-          display: block;
+      /* ПАНЕЛЬ УПРАВЛЕНИЯ КОЛИЧЕСТВОМ И КНОПКА КОРЗИНЫ */
+      .action-row {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+      }
+
+      .quantity-select-wrapper {
+          display: inline-flex;
+          align-items: center;
+          border: 1px solid var(--accent-color);
+          border-radius: 4px;
+          height: 48px;
+          background: #ffffff;
+      }
+
+      .quantity-btn {
+          background: none;
+          border: none;
+          width: 38px;
+          height: 100%;
+          font-size: 1.2rem;
+          cursor: pointer;
+          color: var(--text-main);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          user-select: none;
+      }
+      .quantity-input {
+          width: 45px;
+          height: 100%;
+          border: none;
           text-align: center;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text-main);
+          outline: none;
+          -moz-appearance: textfield;
+      }
+      .quantity-input::-webkit-outer-spin-button,
+      .quantity-input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+
+      .add-to-cart-btn {
+          flex-grow: 1;
+          height: 48px;
           background: transparent;
           border: 1px solid var(--accent-color);
           color: var(--accent-color);
-          padding: 14px 20px;
           font-size: 0.85rem;
           text-transform: uppercase;
           letter-spacing: 1.5px;
-          text-decoration: none;
           font-weight: 600;
           border-radius: 4px;
+          cursor: pointer;
           transition: all 0.2s ease;
-          -webkit-tap-highlight-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
       }
 
       @media (hover: hover) {
-          .order-btn:hover {
+          .add-to-cart-btn:hover {
               background: var(--accent-color);
               color: #ffffff;
           }
       }
 
-      .sticky-footer-btn {
+      /* СТИЛИ ОКНА КОРЗИНЫ */
+      .cart-modal-content {
+          background: #ffffff;
+          width: 90%;
+          max-width: 600px;
+          border-radius: 8px;
+          padding: 30px;
+          position: relative;
+          max-height: 85vh;
+          display: flex;
+          flex-direction: column;
+          color: var(--text-main);
+      }
+      .cart-modal-title {
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-weight: 700;
+          margin-bottom: 20px;
+          border-bottom: 1px solid var(--border-color);
+          padding-bottom: 15px;
+      }
+      .cart-items-list {
+          overflow-y: auto;
+          flex-grow: 1;
+          margin-bottom: 20px;
+          padding-right: 5px;
+      }
+      .cart-item-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 0;
+          border-bottom: 1px solid #f1f0ec;
+          gap: 15px;
+      }
+      .cart-item-info {
+          flex-grow: 1;
+      }
+      .cart-item-title {
+          font-weight: 700;
+          font-size: 1rem;
+      }
+      .cart-item-price-desc {
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          margin-top: 2px;
+      }
+      .cart-item-delete {
+          background: none;
+          border: none;
+          color: #c94c4c;
+          cursor: pointer;
+          font-size: 0.9rem;
+          padding: 5px;
+      }
+      .cart-total-block {
+          border-top: 1px solid var(--border-color);
+          padding-top: 15px;
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1.2rem;
+          font-weight: 700;
+      }
+      .checkout-btn {
+          background: #25D366; /* Цвет WhatsApp */
+          color: #ffffff;
+          border: none;
+          width: 100%;
+          padding: 16px;
+          font-size: 0.95rem;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-weight: 700;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background 0.2s;
+          text-align: center;
+          text-decoration: none;
+          display: block;
+      }
+      .checkout-btn:hover { background: #20ba59; }
+      .cart-empty-text {
+          text-align: center;
+          color: var(--text-muted);
+          padding: 40px 0;
+      }
+
+      /* НИЖНЯЯ ПАНЕЛЬ С КНОПКАМИ */
+      .bottom-bar {
           position: fixed;
           bottom: 30px;
           left: 50%;
           transform: translateX(-50%);
+          display: flex;
+          gap: 15px;
+          z-index: 1000;
+          width: auto;
+          max-width: calc(100% - 40px);
+      }
+
+      .sticky-footer-btn, .sticky-cart-btn {
           background: rgba(255, 255, 255, 0.95); 
           backdrop-filter: blur(10px);          
           -webkit-backdrop-filter: blur(10px);
           color: var(--text-main);
           border: 1px solid var(--text-main);
-          padding: 18px 45px;
+          padding: 18px 35px;
           font-size: 0.9rem;
           text-transform: uppercase;
           letter-spacing: 2px;
@@ -573,18 +688,29 @@
           text-decoration: none;
           border-radius: 30px;
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-          z-index: 1000;
           white-space: nowrap;
-          transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+          transition: all 0.2s ease;
           -webkit-tap-highlight-color: transparent;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+      }
+
+      .sticky-cart-btn {
+          background: var(--text-main);
+          color: #ffffff;
       }
 
       @media (hover: hover) {
           .sticky-footer-btn:hover {
               background: var(--text-main);
               color: #ffffff;
-              transform: translateX(-50%) translateY(-3px);
-              box-shadow: 0 15px 35px rgba(30, 29, 26, 0.18);
+              transform: translateY(-3px);
+          }
+          .sticky-cart-btn:hover {
+              background: #33312e;
+              transform: translateY(-3px);
           }
       }
 
@@ -593,14 +719,8 @@
           .brand-text-heading { font-size: 1.8rem; letter-spacing: 3px; }
           .brand-desc { font-size: 0.95rem; }
           
-          .custom-order-banner { padding: 20px 0 5px; }
-          .custom-order-box { padding: 18px 20px; }
-          .custom-order-title { font-size: 1rem; }
-          .custom-order-text { font-size: 0.88rem; }
-
-          .section-categories { padding: 20px 0 50px; }
           .main-categories-grid { grid-template-columns: 1fr; gap: 20px; }
-          .category-menu-card { min-height: 160px; padding: 35px 25px; }
+          .category-menu-card { min-height: 140px; padding: 35px 25px; }
           .category-menu-title { font-size: 1.25rem; }
 
           .subcategory-title { font-size: 1.25rem; margin-bottom: 25px; }
@@ -617,13 +737,20 @@
           .lightbox-arrow.prev { left: 10px; }
           .lightbox-arrow.next { right: 10px; }
 
-          .sticky-footer-btn { 
-              width: calc(100% - 30px); 
+          .bottom-bar {
+              bottom: 15px;
+              width: calc(100% - 30px);
+              max-width: none;
+              gap: 10px;
+          }
+          .sticky-footer-btn, .sticky-cart-btn { 
+              flex: 1;
+              justify-content: center;
               text-align: center; 
-              bottom: 15px; 
               border-radius: 12px;
-              padding: 16px 20px;
-              font-size: 0.85rem;
+              padding: 16px 10px;
+              font-size: 0.8rem;
+              letter-spacing: 1px;
           }
       }
   </style>
@@ -635,21 +762,9 @@
           <div class="brand-logo" id="brand-logo" onclick="showMainMenu()"></div>
           <span class="brand-text-heading" onclick="showMainMenu()">WOODY BRAND</span>
           <div class="brand-desc" id="brand-desc">Загрузка...</div>
-          <div class="instagram-link-wrapper" id="instagram-block"></div>
+          <div class="instagram-block-wrapper" id="instagram-block"></div>
       </div>
   </header>
-
-  <div class="custom-order-banner" id="custom-order-banner">
-      <div class="container">
-          <div class="custom-order-box">
-              <div class="custom-order-title">Собственное производство под заказ</div>
-              <div class="custom-order-text">
-                  Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. 
-                  </div>Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.</div>
-              </div>
-          </div>
-      </div>
-  </div>
 
   <div class="back-nav-wrapper" id="back-nav-block" style="display: none;">
       <div class="container">
@@ -659,7 +774,10 @@
 
   <div id="dynamic-content"></div>
 
-  <a href="#" class="sticky-footer-btn" id="main-cta-btn" target="_blank">Заказать по референсу</a>
+  <div class="bottom-bar">
+      <a href="#" class="sticky-footer-btn" id="main-cta-btn" target="_blank">Индивидуальный расчет</a>
+      <button class="sticky-cart-btn" onclick="openCartModal()">Корзина <span id="cart-badge">(0)</span></button>
+  </div>
 
   <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
       <span class="lightbox-close-btn">&times;</span>
@@ -668,13 +786,27 @@
       <button class="lightbox-arrow next" onclick="moveLightboxSlide(1, event)">›</button>
   </div>
 
+  <div id="cart-modal" class="cart-modal" onclick="closeCartModal()">
+      <div class="cart-modal-content" onclick="event.stopPropagation()">
+          <span class="cart-close-btn" onclick="closeCartModal()">&times;</span>
+          <div class="cart-modal-title">Ваш заказ</div>
+          <div class="cart-items-list" id="cart-items-container">
+              </div>
+          <div class="cart-total-block">
+              <span>Итого:</span>
+              <span id="cart-total-price">0 ₸</span>
+          </div>
+          <button class="checkout-btn" onclick="sendOrderToWhatsApp()">Отправить заказ в WhatsApp</button>
+      </div>
+  </div>
+
   <script>
       const DATA = {
           whatsappNumber: "77057003111", 
           instagramUrl: "https://instagram.com/woody_brand.kz", 
           brandName: "WOODY BRAND",
           brandLogo: "Images/logo.png", 
-          brandDesc: "Изделия из дерева для ресторанов и бизнеса в Астане",
+          brandDesc: "Производство изделий из дерева для ресторанов и бизнеса в Астане",
           
           categories: [
               { id: "massiv", name: "Массив дерева", desc: "Доски для стейков, премиум органайзеры, пеналы под приборы" },
@@ -694,6 +826,7 @@
 
           products: [
               {
+                  id: "dst-m-01",
                   category: "massiv",
                   subcategory: "Доски для подачи блюд",
                   title: "Доска для Стейка DST-M-01",
@@ -701,12 +834,13 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/2026-06-20_01-21-35.jpg", "Images/2026-06-20_01-22-05.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "11 500 ₸" },
-                      { range: "10–40 шт.", price: "9 700 ₸" },
-                      { range: "от 50 шт.", price: "8 300 ₸" }
+                      { min: 5, max: 9, price: 11500, display: "11 500 ₸" },
+                      { min: 10, max: 40, price: 9700, display: "9 700 ₸" },
+                      { min: 50, max: Infinity, price: 8300, display: "8 300 ₸" }
                   ]
               },
               {
+                  id: "ddb-m-01",
                   category: "massiv",
                   subcategory: "Доски для подачи блюд",
                   title: "Доска для Бургера DDB-M-01",
@@ -714,25 +848,27 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/20260620_010557.jpg", "Images/20260620_010539.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "11 500 ₸" },
-                      { range: "10–40 шт.", price: "9 700 ₸" },
-                      { range: "от 50 шт.", price: "8 300 ₸" }
+                      { min: 5, max: 9, price: 11500, display: "11 500 ₸" },
+                      { min: 10, max: 40, price: 9700, display: "9 700 ₸" },
+                      { min: 50, max: Infinity, price: 8300, display: "8 300 ₸" }
                   ]
               },
               {
+                  id: "dds-m-01",
                   category: "massiv",
                   subcategory: "Доски для подачи блюд",
                   title: "Доска для Сета DDS-M-01",
-                  desc: "Material: Ясень / Размер: 30х30x2 см",
+                  desc: "Материал: Ясень / Размер: 30х30x2 см",
                   meta: "Цены с учётом брендирования",
                   img: ["Images/DDS-M-01_1.jpg", "Images/DDS-M-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "11 500 ₸" },
-                      { range: "10–40 шт.", price: "9 700 ₸" },
-                      { range: "от 50 шт.", price: "8 300 ₸" }
+                      { min: 5, max: 9, price: 11500, display: "11 500 ₸" },
+                      { min: 10, max: 40, price: 9700, display: "9 700 ₸" },
+                      { min: 50, max: Infinity, price: 8300, display: "8 300 ₸" }
                   ]
               },
               {
+                  id: "ppp-m-l-01",
                   category: "massiv",
                   subcategory: "Пеналы под приборы",
                   title: "Пенал под приборы PPP-M-L-01",
@@ -740,12 +876,13 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/PPP-M-L-01_1.jpg", "Images/PPP-M-L-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "8 600 ₸" },
-                      { range: "10–40 шт.", price: "7 300 ₸" },
-                      { range: "от 50 шт.", price: "6 200 ₸" }
+                      { min: 5, max: 9, price: 8600, display: "8 600 ₸" },
+                      { min: 10, max: 40, price: 7300, display: "7 300 ₸" },
+                      { min: 50, max: Infinity, price: 6200, display: "6 200 ₸" }
                   ]
               },
               {
+                  id: "ppp-m-s-01",
                   category: "massiv",
                   subcategory: "Пеналы под приборы",
                   title: "Пенал под приборы PPP-M-S-01",
@@ -753,12 +890,13 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/PPP-M-S-01_1.jpg", "Images/PPP-M-S-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "6 500 ₸" },
-                      { range: "10–40 шт.", price: "5 500 ₸" },
-                      { range: "от 50 шт.", price: "4 700 ₸" }
+                      { min: 5, max: 9, price: 6500, display: "6 500 ₸" },
+                      { min: 10, max: 40, price: 5500, display: "5 500 ₸" },
+                      { min: 50, max: Infinity, price: 4700, display: "4 700 ₸" }
                   ]
               },
               {
+                  id: "ppp-m-m-01",
                   category: "massiv",
                   subcategory: "Пеналы под приборы",
                   title: "Пенал под приборы PPP-M-M-01",
@@ -766,12 +904,13 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/PPP-M-M-01_1.jpg", "Images/PPP-M-M-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–30 шт.", price: "5 300 ₸" },
-                      { range: "31–40 шт.", price: "4 500 ₸" },
-                      { range: "от 50 шт.", price: "3 800 ₸" }
+                      { min: 5, max: 9, price: 5300, display: "5 300 ₸" },
+                      { min: 10, max: 40, price: 4500, display: "4 500 ₸" },
+                      { min: 50, max: Infinity, price: 3800, display: "3 800 ₸" }
                   ]
               },
               {
+                  id: "org-m-01",
                   category: "massiv",
                   subcategory: "Органайзеры",
                   title: "Органайзер ORG-M-01",
@@ -779,12 +918,13 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/ORG-M-01_1.jpg", "Images/ORG-M-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "7 900 ₸" },
-                      { range: "10–40 шт.", price: "6 700 ₸" },
-                      { range: "от 50 шт.", price: "5 700 ₸" }
+                      { min: 5, max: 9, price: 7900, display: "7 900 ₸" },
+                      { min: 10, max: 40, price: 6700, display: "6 700 ₸" },
+                      { min: 50, max: Infinity, price: 5700, display: "5 700 ₸" }
                   ]
               },
               {
+                  id: "org-m-02",
                   category: "massiv",
                   subcategory: "Органайзеры",
                   title: "Органайзер ORG-M-02",
@@ -792,12 +932,13 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/ORG-M-02_1.jpg", "Images/ORG-M-02_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "9 700 ₸" },
-                      { range: "10–40 шт.", price: "8 200 ₸" },
-                      { range: "от 50 шт.", price: "7 000 ₸" }
+                      { min: 5, max: 9, price: 9700, display: "9 700 ₸" },
+                      { min: 10, max: 40, price: 8200, display: "8 200 ₸" },
+                      { min: 50, max: Infinity, price: 7000, display: "7 000 ₸" }
                   ]
               }, 
               {
+                  id: "org-m-03",
                   category: "massiv",
                   subcategory: "Органайзеры",
                   title: "Органайзер ORG-M-03",
@@ -805,12 +946,13 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/ORG-M-03_1.jpg", "Images/ORG-M-03_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "9 700 ₸" },
-                      { range: "10–40 шт.", price: "8 200 ₸" },
-                      { range: "от 50 шт.", price: "7 000 ₸" }
+                      { min: 5, max: 9, price: 9700, display: "9 700 ₸" },
+                      { min: 10, max: 40, price: 8200, display: "8 200 ₸" },
+                      { min: 50, max: Infinity, price: 7000, display: "7 000 ₸" }
                   ]
               }, 
               {
+                  id: "org-f-01",
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-01",
@@ -818,12 +960,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-01_1.jpg", "Images/ORG-F-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 800 ₸" },
-                      { range: "10–40 шт.", price: "3 600 ₸" },
-                      { range: "от 50 шт.", price: "3 200 ₸" }
+                      { min: 5, max: 9, price: 4800, display: "4 800 ₸" },
+                      { min: 10, max: 40, price: 3600, display: "3 600 ₸" },
+                      { min: 50, max: Infinity, price: 3200, display: "3 200 ₸" }
                   ] 
               },
               {
+                  id: "org-f-02",
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-02",
@@ -831,12 +974,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-02_1.jpg", "Images/ORG-F-02_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
+                      { min: 5, max: 9, price: 4200, display: "4 200 ₸" },
+                      { min: 10, max: 40, price: 3200, display: "3 200 ₸" },
+                      { min: 50, max: Infinity, price: 2800, display: "2 800 ₸" }
                   ] 
               },
               {
+                  id: "org-f-03",
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-03",
@@ -844,12 +988,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-03_1.jpg", "Images/ORG-F-03_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 000 ₸" },
-                      { range: "10–40 шт.", price: "3 000 ₸" },
-                      { range: "от 50 шт.", price: "2 700 ₸" }
+                      { min: 5, max: 9, price: 4000, display: "4 000 ₸" },
+                      { min: 10, max: 40, price: 3000, display: "3 000 ₸" },
+                      { min: 50, max: Infinity, price: 2700, display: "2 700 ₸" }
                   ] 
               },
               {
+                  id: "org-f-04",
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-04",
@@ -857,12 +1002,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-04_1.jpg", "Images/ORG-F-04_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
+                      { min: 5, max: 9, price: 4200, display: "4 200 ₸" },
+                      { min: 10, max: 40, price: 3200, display: "3 200 ₸" },
+                      { min: 50, max: Infinity, price: 2800, display: "2 800 ₸" }
                   ] 
               },
               {
+                  id: "org-f-05",
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-05",
@@ -870,12 +1016,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-05_1.jpg", "Images/ORG-F-05_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
+                      { min: 5, max: 9, price: 4200, display: "4 200 ₸" },
+                      { min: 10, max: 40, price: 3200, display: "3 200 ₸" },
+                      { min: 50, max: Infinity, price: 2800, display: "2 800 ₸" }
                   ] 
               },
               {
+                  id: "org-f-06",
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-06",
@@ -883,12 +1030,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-06_1.jpg", "Images/ORG-F-06_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 500 ₸" },
-                      { range: "10–40 шт.", price: "3 400 ₸" },
-                      { range: "от 50 шт.", price: "3 100 ₸" }
+                      { min: 5, max: 9, price: 4500, display: "4 500 ₸" },
+                      { min: 10, max: 40, price: 3400, display: "3 400 ₸" },
+                      { min: 50, max: Infinity, price: 3100, display: "3 100 ₸" }
                   ] 
               },
               {
+                  id: "org-f-07",
                   category: "fanera",
                   subcategory: "Салфетницы",
                   title: "Салфетница ORG-F-07",
@@ -896,12 +1044,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/ORG-F-07_1.jpg", "Images/ORG-F-07_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
+                      { min: 5, max: 9, price: 4200, display: "4 200 ₸" },
+                      { min: 10, max: 40, price: 3200, display: "3 200 ₸" },
+                      { min: 50, max: Infinity, price: 2800, display: "2 800 ₸" }
                   ] 
               },
               {
+                  id: "pdns-f-01",
                   category: "fanera",
                   subcategory: "Подносы",
                   title: "Поднос PDNS-F-01",
@@ -909,12 +1058,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/PDNS-F-01_1.jpg", "Images/PDNS-F-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
+                      { min: 5, max: 9, price: 4200, display: "4 200 ₸" },
+                      { min: 10, max: 40, price: 3200, display: "3 200 ₸" },
+                      { min: 50, max: Infinity, price: 2800, display: "2 800 ₸" }
                   ] 
               },
               {
+                  id: "pdns-f-02",
                   category: "fanera",
                   subcategory: "Подносы",
                   title: "Поднос PDNS-F-02",
@@ -922,12 +1072,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/PDNS-F-02_1.jpg", "Images/PDNS-F-02_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "6 900 ₸" },
-                      { range: "10–40 шт.", price: "5 200 ₸" },
-                      { range: "от 50 шт.", price: "4 600 ₸" }
+                      { min: 5, max: 9, price: 6900, display: "6 900 ₸" },
+                      { min: 10, max: 40, price: 5200, display: "5 200 ₸" },
+                      { min: 50, max: Infinity, price: 4600, display: "4 600 ₸" }
                   ] 
               },
               {
+                  id: "pdns-f-03",
                   category: "fanera",
                   subcategory: "Подносы",
                   title: "Поднос PDNS-F-03",
@@ -935,12 +1086,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/PDNS-F-03_1.jpg", "Images/PDNS-F-03_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
+                      { min: 5, max: 9, price: 4200, display: "4 200 ₸" },
+                      { min: 10, max: 40, price: 3200, display: "3 200 ₸" },
+                      { min: 50, max: Infinity, price: 2800, display: "2 800 ₸" }
                   ] 
               },
               {
+                  id: "ppp-f-01",
                   category: "fanera",
                   subcategory: "Пеналы под приборы",
                   title: "Пенал под приборы PPP-F-01",
@@ -948,12 +1100,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/PPP-F-01_1.jpg", "Images/PPP-F-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "3 600 ₸" },
-                      { range: "10–40 шт.", price: "2 700 ₸" },
-                      { range: "от 50 шт.", price: "2 400 ₸" }
+                      { min: 5, max: 9, price: 3600, display: "3 600 ₸" },
+                      { min: 10, max: 40, price: 2700, display: "2 700 ₸" },
+                      { min: 50, max: Infinity, price: 2400, display: "2 400 ₸" }
                   ] 
               },
               {
+                  id: "rsr-f-01",
                   category: "fanera",
                   subcategory: "Резерв",
                   title: "Резерв RSR-F-01",
@@ -961,12 +1114,13 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/RSR-F-01_1.jpg", "Images/RSR-F-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "3 400 ₸" },
-                      { range: "10–40 шт.", price: "2 600 ₸" },
-                      { range: "от 50 шт.", price: "2 300 ₸" }
+                      { min: 5, max: 9, price: 3400, display: "3 400 ₸" },
+                      { min: 10, max: 40, price: 2600, display: "2 600 ₸" },
+                      { min: 50, max: Infinity, price: 2300, display: "2 300 ₸" }
                   ] 
               },
               {
+                  id: "rsr-f-02",
                   category: "fanera",
                   subcategory: "Резерв",
                   title: "Резерв RSR-F-02",
@@ -974,37 +1128,37 @@
                   meta: "Расцветка на выбор из доступной палитры, Цены с учётом брендирования",
                   img: ["Images/RSR-F-02_1.jpg", "Images/RSR-F-02_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "4 200 ₸" },
-                      { range: "10–40 шт.", price: "3 200 ₸" },
-                      { range: "от 50 шт.", price: "2 800 ₸" }
+                      { min: 5, max: 9, price: 4200, display: "4 200 ₸" },
+                      { min: 10, max: 40, price: 3200, display: "3 200 ₸" },
+                      { min: 50, max: Infinity, price: 2800, display: "2 800 ₸" }
                   ] 
               }
           ]
       };
 
+      // Состояние корзины
+      let cart = JSON.parse(localStorage.getItem('woody_cart')) || [];
+
+      // Глобальное состояние для лайтбокса
       let currentLightboxImages = [];
       let currentLightboxIndex = 0;
 
+      // Инициализация
       document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("brand-desc").textContent = DATA.brandDesc;
           document.getElementById("brand-logo").innerHTML = `<img src="${DATA.brandLogo}" alt="${DATA.brandName}">`;
           document.getElementById("instagram-block").innerHTML = `
               <a href="${DATA.instagramUrl}" class="instagram-btn" target="_blank">Instagram</a>
           `;
+          document.getElementById("main-cta-btn").href = `https://wa.me/${DATA.whatsappNumber}`;
           
+          updateCartBadge();
           showMainMenu();
       });
 
       // Переключение в главное меню
       function showMainMenu() {
-          document.getElementById("custom-order-banner").style.display = "block";
           document.getElementById("back-nav-block").style.display = "none";
-          
-          // Меняем назначение и текст нижней плавающей кнопки на главном экране
-          const ctaBtn = document.getElementById("main-cta-btn");
-          ctaBtn.textContent = "Изготовить по референсу";
-          ctaBtn.href = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent('Здравствуйте! Хочу отправить свой референс/фото для индивидуального расчета стоимости.')}`;
-
           const container = document.getElementById("dynamic-content");
           
           let categoriesHtml = DATA.categories.map(cat => {
@@ -1042,18 +1196,12 @@
 
       // Переключение внутрь категории товаров
       function showCategory(catId) {
-          document.getElementById("custom-order-banner").style.display = "none";
           document.getElementById("back-nav-block").style.display = "block";
-          
-          // Возвращаем стандартный текст плавающей кнопке внутри категорий
-          const ctaBtn = document.getElementById("main-cta-btn");
-          ctaBtn.textContent = "Индивидуальный расчет";
-          ctaBtn.href = `https://wa.me/${DATA.whatsappNumber}`;
-
           const container = document.getElementById("dynamic-content");
-          const filteredProducts = DATA.products.filter(p => p.category === catId);
           
+          const filteredProducts = DATA.products.filter(p => p.category === catId);
           const subcategories = {};
+          
           filteredProducts.forEach(p => {
               if (!subcategories[p.subcategory]) subcategories[p.subcategory] = [];
               subcategories[p.subcategory].push(p);
@@ -1068,7 +1216,7 @@
                       <div class="products-grid">
               `;
 
-              subcategories[subName].forEach((p, pIndex) => {
+              subcategories[subName].forEach((p) => {
                   let imgElements = p.img.map((src, i) => `
                       <img src="${src}" class="${i === 0 ? 'active' : ''}" data-index="${i}" alt="${p.title}" onclick="openLightbox(${JSON.stringify(p.img).replace(/"/g, '&quot;')}, ${i}, event)">
                   `).join('');
@@ -1086,15 +1234,16 @@
 
                   let priceRows = p.priceTiers.map(t => `
                       <div class="price-tier-row">
-                          <span class="tier-range">${t.range}</span>
-                          <span class="tier-price">${t.price}</span>
+                          <span class="tier-range">${t.min === 5 && t.max === 9 ? '5–9 шт.' : t.min === 10 && t.max === 40 ? '10–40 шт.' : 'от 50 шт.'}</span>
+                          <span class="tier-price">${t.display}</span>
                       </div>
                   `).join('');
 
-                  const textMessage = encodeURIComponent(`Здравствуйте! Интересует модель: ${p.title}`);
+                  const existingItem = cart.find(item => item.id === p.id);
+                  const initialQty = existingItem ? existingItem.qty : 5; 
 
                   html += `
-                      <div class="product-card">
+                      <div class="product-card" data-product-id="${p.id}">
                           <div class="product-img-wrapper">
                               <div class="product-slides">${imgElements}</div>
                               ${arrows} ${dots}
@@ -1105,7 +1254,14 @@
                               <div class="product-meta">${p.meta}</div>
                               <div class="price-block-wrapper">${priceRows}</div>
                               <div class="product-footer">
-                                  <a href="https://wa.me/${DATA.whatsappNumber}?text=${textMessage}" class="order-btn" target="_blank">Заказать расчет</a>
+                                  <div class="action-row">
+                                      <div class="quantity-select-wrapper">
+                                          <button class="quantity-btn" onclick="adjustProductQty('${p.id}', -1)">-</button>
+                                          <input type="number" class="quantity-input" id="input-${p.id}" value="${initialQty}" min="5" onchange="validateQtyInput('${p.id}')">
+                                          <button class="quantity-btn" onclick="adjustProductQty('${p.id}', 1)">+</button>
+                                      </div>
+                                      <button class="add-to-cart-btn" onclick="handleAddToCart('${p.id}')">В корзину</button>
+                                  </div>
                               </div>
                           </div>
                       </div>
@@ -1120,12 +1276,159 @@
           window.scrollTo(0, 0);
       }
 
-      function changeSlide(btn, direction, event) {
-          if (event) {
-              event.preventDefault();
-              event.stopPropagation();
+      // Регулировка количества кнопками
+      function adjustProductQty(productId, delta) {
+          const input = document.getElementById(`input-${productId}`);
+          let val = parseInt(input.value) || 0;
+          val += delta;
+          if (val < 5) val = 5; 
+          input.value = val;
+      }
+
+      // Проверка ручного ввода с клавиатуры
+      function validateQtyInput(productId) {
+          const input = document.getElementById(`input-${productId}`);
+          let val = parseInt(input.value);
+          if (isNaN(val) || val < 5) {
+              input.value = 5;
           }
+      }
+
+      // Добавление в корзину
+      function handleAddToCart(productId) {
+          const input = document.getElementById(`input-${productId}`);
+          let qty = parseInt(input.value) || 5;
+          if (qty < 5) qty = 5;
           
+          const productData = DATA.products.find(p => p.id === productId);
+          if (!productData) return;
+
+          const existingIndex = cart.findIndex(item => item.id === productId);
+          if (existingIndex > -1) {
+              cart[existingIndex].qty = qty;
+          } else {
+              cart.push({ id: productId, qty: qty });
+          }
+
+          saveCart();
+          updateCartBadge();
+
+          const card = document.querySelector(`[data-product-id="${productId}"]`);
+          const btn = card.querySelector('.add-to-cart-btn');
+          const originalText = btn.textContent;
+          btn.textContent = "Добавлено! ✓";
+          btn.style.background = "#25D366";
+          btn.style.color = "#ffffff";
+          btn.style.borderColor = "#25D366";
+          
+          setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = "";
+              btn.style.color = "";
+              btn.style.borderColor = "";
+          }, 1200);
+      }
+
+      // Поиск цены за единицу
+      function calculateUnitPrice(product, qty) {
+          const tier = product.priceTiers.find(t => qty >= t.min && qty <= t.max);
+          if (!tier) return product.priceTiers[0].price;
+          return tier.price;
+      }
+
+      function saveCart() {
+          localStorage.setItem('woody_cart', JSON.stringify(cart));
+      }
+
+      function updateCartBadge() {
+          const badge = document.getElementById('cart-badge');
+          badge.textContent = `(${cart.length})`;
+      }
+
+      // Открытие корзины
+      function openCartModal() {
+          const modal = document.getElementById('cart-modal');
+          const container = document.getElementById('cart-items-container');
+          const totalPriceElement = document.getElementById('cart-total-price');
+          
+          container.innerHTML = "";
+          
+          if (cart.length === 0) {
+              container.innerHTML = `<div class="cart-empty-text">Ваша корзина пуста. Перейдите в категории, чтобы добавить товары.</div>`;
+              totalPriceElement.textContent = "0 ₸";
+              modal.classList.add('open');
+              return;
+          }
+
+          let overallTotal = 0;
+
+          cart.forEach(item => {
+              const p = DATA.products.find(prod => prod.id === item.id);
+              if (!p) return;
+
+              const unitPrice = calculateUnitPrice(p, item.qty);
+              const itemSum = unitPrice * item.qty;
+              overallTotal += itemSum;
+
+              container.innerHTML += `
+                  <div class="cart-item-row">
+                      <div class="cart-item-info">
+                          <div class="cart-item-title">${p.title}</div>
+                          <div class="cart-item-price-desc">
+                              ${item.qty} шт. × ${unitPrice.toLocaleString('ru-RU')} ₸ = <b>${itemSum.toLocaleString('ru-RU')} ₸</b>
+                          </div>
+                      </div>
+                      <button class="cart-item-delete" onclick="removeCartItem('${item.id}')">Удалить</button>
+                  </div>
+              `;
+          });
+
+          totalPriceElement.textContent = `${overallTotal.toLocaleString('ru-RU')} ₸`;
+          modal.classList.add('open');
+      }
+
+      function closeCartModal() {
+          document.getElementById('cart-modal').classList.remove('open');
+      }
+
+      function removeCartItem(productId) {
+          cart = cart.filter(item => item.id !== productId);
+          saveCart();
+          updateCartBadge();
+          openCartModal();
+      }
+
+      // Формирование сообщения в WhatsApp
+      function sendOrderToWhatsApp() {
+          if (cart.length === 0) return;
+
+          let text = `Здравствуйте, ${DATA.brandName}! Хочу сделать заказ:\n\n`;
+          let overallTotal = 0;
+
+          cart.forEach((item, index) => {
+              const p = DATA.products.find(prod => prod.id === item.id);
+              if (!p) return;
+
+              const unitPrice = calculateUnitPrice(p, item.qty);
+              const itemSum = unitPrice * item.qty;
+              overallTotal += itemSum;
+
+              text += `${index + 1}. ${p.title}\n`;
+              text += `   — Количество: ${item.qty} шт.\n`;
+              text += `   — Цена за шт: ${unitPrice.toLocaleString('ru-RU')} ₸\n`;
+              text += `   — Сумма: ${itemSum.toLocaleString('ru-RU')} ₸\n\n`;
+          });
+
+          text += `*Итого предварительно: ${overallTotal.toLocaleString('ru-RU')} ₸*\n\n`;
+          text += `Пожалуйста, проверьте заказ и подготовьте полную стоимость с учётом брендирования.`;
+
+          const url = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(text)}`;
+          window.open(url, '_blank');
+      }
+
+      // Слайдер внутри карточки
+      function changeSlide(btn, direction, event) {
+          event.stopPropagation();
           const wrapper = btn.closest('.product-img-wrapper');
           const imgs = wrapper.querySelectorAll('.product-slides img');
           const dots = wrapper.querySelectorAll('.slide-dot');
@@ -1146,12 +1449,9 @@
           if (dots.length) dots[newIndex].classList.add('active');
       }
 
+      // Лайтбокс
       function openLightbox(imagesArray, index, event) {
-          if (event) {
-              event.preventDefault();
-              event.stopPropagation();
-          }
-          
+          event.stopPropagation();
           currentLightboxImages = imagesArray;
           currentLightboxIndex = index;
           
@@ -1170,11 +1470,7 @@
       }
 
       function moveLightboxSlide(direction, event) {
-          if (event) {
-              event.preventDefault();
-              event.stopPropagation();
-          }
-          
+          event.stopPropagation();
           currentLightboxIndex += direction;
           if (currentLightboxIndex >= currentLightboxImages.length) currentLightboxIndex = 0;
           if (currentLightboxIndex < 0) currentLightboxIndex = currentLightboxImages.length - 1;
