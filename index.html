@@ -44,7 +44,7 @@
           border-bottom: 1px solid var(--border-color);
       }
 
-      /* === ОБНОВЛЕННЫЙ БЛОК: ИНФОРМАЦИЯ О ПРОИЗВОДСТВЕ === */
+      /* === БЛОК: ИНФОРМАЦИЯ О ПРОИЗВОДСТВЕ === */
       .custom-order-banner {
           background-color: #ffffff;
           padding: 30px 0 10px;
@@ -220,15 +220,6 @@
           color: var(--text-main);
       }
 
-      .category-menu-count {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 600;
-          margin-top: auto;
-      }
-
       .section-title {
           font-size: 1.4rem;
           font-weight: 700;
@@ -345,7 +336,7 @@
           z-index: 1;
           transition: opacity 0.4s ease;
           cursor: zoom-in;
-      }
+       }
 
       .product-slides img.active {
           opacity: 1;
@@ -648,15 +639,12 @@
       </div>
   </header>
 
-  <!-- Обновленный баннер, исключающий двусмысленность -->
   <div class="custom-order-banner" id="custom-order-banner">
       <div class="container">
           <div class="custom-order-box">
               <div class="custom-order-title">Собственное производство под заказ</div>
               <div class="custom-order-text">
-                  Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам.
-
-                  </div>Сроки производства начинаются от 7 (рабочих) дней, в зависимости от типа и количества изделий.
+                  Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.
               </div>
           </div>
       </div>
@@ -670,7 +658,6 @@
 
   <div id="dynamic-content"></div>
 
-  <!-- Текст этой кнопки теперь меняется динамически скриптом -->
   <a href="#" class="sticky-footer-btn" id="main-cta-btn" target="_blank">Заказать по референсу</a>
 
   <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
@@ -1020,12 +1007,10 @@
           const container = document.getElementById("dynamic-content");
           
           let categoriesHtml = DATA.categories.map(cat => {
-              const count = DATA.products.filter(p => p.category === cat.id).length;
               return `
                   <div class="category-menu-card" onclick="showCategory('${cat.id}')">
                       <div class="category-menu-title">${cat.name}</div>
-                      <div style="font-size:0.95rem; color:var(--text-muted); margin-bottom:15px;">${cat.desc}</div>
-                      <div class="category-menu-count">${count} моделей</div>
+                      <div style="font-size:0.95rem; color:var(--text-muted);">${cat.desc}</div>
                   </div>
               `;
           }).join('');
