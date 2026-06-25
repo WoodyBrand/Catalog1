@@ -27,6 +27,7 @@
           color: var(--text-main);
           line-height: 1.6;
           padding-bottom: 140px; 
+          -webkit-overflow-scrolling: touch;
       }
 
       .container {
@@ -36,7 +37,6 @@
           width: 100%;
       }
 
-      /* === ШАПКА И СЕКЦИИ === */
       header {
           text-align: center;
           padding: 60px 0 40px;
@@ -49,7 +49,6 @@
           background-color: var(--bg-color); 
       }
 
-      /* === СТИЛИ ДЛЯ ИНФО-БАННЕРА === */
       .custom-order-banner {
           padding: 40px 0 10px; 
           background-color: var(--bg-color);
@@ -148,9 +147,7 @@
           padding: 0 10px;
       }
 
-      .instagram-link-wrapper {
-          margin-top: 20px;
-      }
+      .instagram-link-wrapper { margin-top: 20px; }
 
       .instagram-btn {
           display: inline-flex;
@@ -177,7 +174,6 @@
           }
       }
 
-      /* СЕТКИ */
       .main-categories-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -240,19 +236,20 @@
           transition: all 0.25s ease;
       }
 
-      @media (hover: hover) {
-          .portfolio-card:hover {
-              transform: translateY(-4px);
-              box-shadow: 0 15px 30px rgba(46, 44, 41, 0.08);
-              border-color: #c9c6bb;
-          }
+      img.lazy-loaded {
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          will-change: opacity;
+      }
+      img.lazy-loaded.loaded {
+          opacity: 1;
       }
 
       .portfolio-img-wrapper {
           position: relative;
           width: 100%;
           padding-top: 100%; 
-          background-color: #ffffff;
+          background-color: #eae7df; 
           overflow: hidden;
       }
 
@@ -266,7 +263,6 @@
           cursor: zoom-in;
       }
 
-      /* КАРТОЧКИ ТОВАРОВ */
       .subcategory-section { margin-bottom: 60px; }
 
       .subcategory-title {
@@ -309,7 +305,7 @@
           position: relative;
           width: 100%;
           padding-top: 75%;
-          background-color: #ffffff;
+          background-color: #eae7df; 
           overflow: hidden;
           border-bottom: 1px solid var(--border-color);
       }
@@ -322,6 +318,7 @@
           height: 100%;
       }
 
+      /* Оптимизация картинок слайдера: аппаратное ускорение */
       .product-slides img {
           position: absolute;
           top: 0;
@@ -330,14 +327,22 @@
           height: 100%;
           object-fit: contain;
           opacity: 0;
-          z-index: 1;
-          transition: opacity 0.4s ease;
+          visibility: hidden;
+          transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
           cursor: zoom-in;
+          
+          /* Активация графического чипа смартфона (GPU) для плавности */
+          will-change: opacity, visibility;
+          transform: translate3d(0, 0, 0); 
       }
 
       .product-slides img.active {
+          visibility: visible;
+      }
+
+      /* Показываем картинку только когда она и активна, и загружена */
+      .product-slides img.active.loaded {
           opacity: 1;
-          z-index: 2;
       }
 
       .slide-arrow {
@@ -396,7 +401,6 @@
           border-radius: 3px;
        }
 
-      /* ПОЛНОЭКРАННЫЙ ПРОСМОТР (ЛАЙТБОКС) И МОДАЛКА КОРЗИНЫ */
       .lightbox-modal, .cart-modal {
           display: none;
           position: fixed;
@@ -409,7 +413,8 @@
           justify-content: center;
           align-items: center;
           opacity: 0;
-          transition: opacity 0.3s ease;
+          transition: opacity 0.2s ease;
+          will-change: opacity;
       }
 
       .lightbox-modal.open, .cart-modal.open {
@@ -423,8 +428,9 @@
           object-fit: contain;
           border-radius: 4px;
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-          transform: scale(0.95);
-          transition: transform 0.3s ease, opacity 0.2s ease;
+          transform: scale(0.97);
+          transition: transform 0.2s ease;
+          will-change: transform;
       }
 
       .lightbox-modal.open img { transform: scale(1); }
@@ -445,7 +451,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          }
+      }
 
       .lightbox-arrow {
           position: absolute;
@@ -528,7 +534,6 @@
 
       .product-footer { margin-top: auto; }
 
-      /* ПАНЕЛЬ УПРАВЛЕНИЯ КОЛИЧЕСТВОМ И КНОПКА КОРЗИНЫ */
       .action-row {
           display: flex;
           gap: 12px;
@@ -599,7 +604,6 @@
           }
       }
 
-      /* СТИЛИ ОКНА КОРЗИНЫ */
       .cart-modal-content {
           background: #ffffff;
           width: 90%;
@@ -635,13 +639,8 @@
           border-bottom: 1px solid #f1f0ec;
           gap: 15px;
       }
-      .cart-item-info {
-          flex-grow: 1;
-      }
-      .cart-item-title {
-          font-weight: 700;
-          font-size: 1rem;
-      }
+      .cart-item-info { flex-grow: 1; }
+      .cart-item-title { font-weight: 700; font-size: 1rem; }
       .cart-item-price-desc {
           font-size: 0.85rem;
           color: var(--text-muted);
@@ -689,7 +688,6 @@
           padding: 40px 0;
       }
 
-      /* НИЖНЯЯ ПАНЕЛЬ С КНОПКАМИ */
       .bottom-bar {
           position: fixed;
           bottom: 30px;
@@ -730,7 +728,6 @@
           color: #ffffff;
       }
 
-      /* КНОПКА НАВЕРХ */
       .scroll-top-btn {
           position: fixed;
           bottom: 110px;
@@ -778,7 +775,6 @@
           header { padding: 45px 0 25px; }
           .brand-text-heading { font-size: 1.8rem; letter-spacing: 3px; }
           .brand-desc { font-size: 0.95rem; }
-          
           body { padding-bottom: 110px; } 
 
           .main-categories-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -882,7 +878,7 @@
           brandName: "WOODY BRAND",
           brandLogo: "Images/logo.png", 
           brandDesc: "Изделия из дерева для ресторанов и бизнеса в Астане",
-          customOrderText: "Здравствуйте! Я хочу сделать индивидуальный расчет. Подскажите, пожалуйста, условия: хочу изготовить изделие по референсу или собственным размерам.",
+          customOrderText: "Здравствуйте! Я хочу сделать индивидуальный расчет для изделия по референсу / собственным размерам.",
           
           categories: [
               { id: "massiv", name: "Массив дерева", desc: "Доски для стейков, премиум органайзеры, пеналы под приборы" },
@@ -1215,16 +1211,18 @@
       let cart = JSON.parse(localStorage.getItem('woody_cart')) || [];
       let currentLightboxImages = [];
       let currentLightboxIndex = 0;
+      let lazyLoadObserver = null;
 
       document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("brand-desc").textContent = DATA.brandDesc;
-          document.getElementById("brand-logo").innerHTML = `<img src="${DATA.brandLogo}" alt="${DATA.brandName}" loading="lazy">`;
+          document.getElementById("brand-logo").innerHTML = `<img src="${DATA.brandLogo}" alt="${DATA.brandName}" class="lazy-loaded" onload="this.classList.add('loaded')">`;
           document.getElementById("instagram-block").innerHTML = `
               <a href="${DATA.instagramUrl}" class="instagram-btn" target="_blank">Instagram</a>
           `;
           
           document.getElementById("main-cta-btn").href = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(DATA.customOrderText)}`;
           
+          initIntersectionObserver();
           updateCartBadge();
           showMainMenu();
 
@@ -1235,8 +1233,28 @@
               } else {
                   scrollTopBtn.classList.remove("visible");
               }
-          }, { passive: true }); // Оптимизация производительности скролла на мобильных
+          }, { passive: true });
       });
+
+      function initIntersectionObserver() {
+          if ('IntersectionObserver' in window) {
+              lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          const img = entry.target;
+                          if (img.dataset.src) {
+                              img.src = img.dataset.src;
+                              img.removeAttribute('data-src');
+                          }
+                          img.addEventListener('load', () => {
+                              img.classList.add('loaded');
+                          });
+                          observer.unobserve(img);
+                      }
+                  });
+              }, { rootMargin: "0px 0px 300px 0px" });
+          }
+      }
 
       function scrollToTop() {
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1245,7 +1263,8 @@
       function showMainMenu() {
           document.getElementById("back-nav-block").style.display = "none";
           const container = document.getElementById("dynamic-content");
-          
+          container.innerHTML = "";
+
           let categoriesHtml = DATA.categories.map(cat => `
               <div class="category-menu-card" onclick="showCategory('${cat.id}')">
                   <div class="category-menu-title">${cat.name}</div>
@@ -1256,7 +1275,7 @@
           let portfolioHtml = DATA.portfolio.map(item => `
               <div class="portfolio-card">
                   <div class="portfolio-img-wrapper">
-                      <img src="${item.img}" alt="Наши работы" loading="lazy" onclick="openLightbox(['${item.img}'], 0, event)">
+                      <img data-src="${item.img}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" class="lazy-loaded" alt="Наши работы" onclick="openLightbox(['${item.img}'], 0, event)">
                   </div>
               </div>
           `).join('');
@@ -1285,12 +1304,17 @@
                   </div>
               </section>
           `;
+
+          if (lazyLoadObserver) {
+              container.querySelectorAll('img.lazy-loaded').forEach(img => lazyLoadObserver.observe(img));
+          }
           window.scrollTo(0, 0);
       }
 
       function showCategory(catId) {
           document.getElementById("back-nav-block").style.display = "block";
           const container = document.getElementById("dynamic-content");
+          container.innerHTML = ""; 
           
           const filteredProducts = DATA.products.filter(p => p.category === catId);
           const subcategories = {};
@@ -1310,10 +1334,13 @@
               `;
 
               subcategories[subName].forEach((p) => {
-                  // Добавлен loading="lazy" для всех картинок товаров
-                  let imgElements = p.img.map((src, i) => `
-                      <img src="${src}" class="${i === 0 ? 'active' : ''}" data-index="${i}" alt="${p.title}" loading="lazy" onclick="openLightbox(${JSON.stringify(p.img).replace(/"/g, '&quot;')}, ${i}, event)">
-                  `).join('');
+                  let imgElements = p.img.map((src, i) => {
+                      if (i === 0) {
+                          return `<img data-src="${src}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" class="lazy-loaded active loaded" data-index="${i}" alt="${p.title}" onclick="openLightbox(${JSON.stringify(p.img).replace(/"/g, '&quot;')}, ${i}, event)">`;
+                      } else {
+                          return `<img data-delayed-src="${src}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" class="lazy-loaded" data-index="${i}" alt="${p.title}" onclick="openLightbox(${JSON.stringify(p.img).replace(/"/g, '&quot;')}, ${i}, event)">`;
+                      }
+                  }).join('');
 
                   let arrows = p.img.length > 1 ? `
                       <button class="slide-arrow prev" onclick="changeSlide(this, -1, event)">‹</button>
@@ -1367,6 +1394,10 @@
 
           html += `</div></section>`;
           container.innerHTML = html;
+
+          if (lazyLoadObserver) {
+              container.querySelectorAll('img[data-src]').forEach(img => lazyLoadObserver.observe(img));
+          }
           window.scrollTo(0, 0);
       }
 
@@ -1514,6 +1545,7 @@
           window.open(url, '_blank');
       }
 
+      // Исправленная и глубоко оптимизированная функция смены слайдов
       function changeSlide(btn, direction, event) {
           event.stopPropagation();
           const wrapper = btn.closest('.product-img-wrapper');
@@ -1525,19 +1557,41 @@
               if (img.classList.contains('active')) activeIndex = i;
           });
 
-          imgs[activeIndex].classList.remove('active');
-          if (dots.length) dots[activeIndex].classList.remove('active');
-
           let newIndex = activeIndex + direction;
           if (newIndex >= imgs.length) newIndex = 0;
           if (newIndex < 0) newIndex = imgs.length - 1;
 
-          imgs[newIndex].classList.add('active');
-          if (dots.length) dots[newIndex].classList.add('active');
+          const currentImg = imgs[activeIndex];
+          const nextImg = imgs[newIndex];
+          
+          // Ленивая подгрузка следующего изображения при перелистывании
+          if (nextImg.dataset.delayedSrc) {
+              nextImg.src = nextImg.dataset.delayedSrc;
+              nextImg.removeAttribute('data-delayed-src');
+              nextImg.addEventListener('load', () => {
+                  nextImg.classList.add('loaded');
+              }, { once: true });
+          } else {
+              // Если картинка уже была загружена ранее, принудительно ставим класс loaded
+              nextImg.classList.add('loaded');
+          }
+
+          // Плавная смена состояний без Layout Thrashing
+          currentImg.classList.remove('active');
+          nextImg.classList.add('active');
+
+          if (dots.length) {
+              dots[activeIndex].classList.remove('active');
+              dots[newIndex].classList.add('active');
+          }
       }
 
       function openLightbox(imagesArray, index, event) {
-          event.stopPropagation();
+          if (event) {
+              event.preventDefault();
+              event.stopPropagation();
+          }
+          
           currentLightboxImages = imagesArray;
           currentLightboxIndex = index;
           
@@ -1556,7 +1610,11 @@
       }
 
       function moveLightboxSlide(direction, event) {
-          event.stopPropagation();
+          if (event) {
+              event.preventDefault();
+              event.stopPropagation();
+          }
+          
           currentLightboxIndex += direction;
           if (currentLightboxIndex >= currentLightboxImages.length) currentLightboxIndex = 0;
           if (currentLightboxIndex < 0) currentLightboxIndex = currentLightboxImages.length - 1;
