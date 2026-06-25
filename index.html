@@ -45,8 +45,36 @@
       }
 
       .section-categories {
-          padding: 50px 0 60px;
+          padding: 10px 0 50px; 
           background-color: var(--bg-color); 
+      }
+
+      /* === СТИЛИ ДЛЯ ИНФО-БАННЕРА === */
+      .custom-order-banner {
+          padding: 40px 0 10px; 
+          background-color: var(--bg-color);
+      }
+      .custom-order-box {
+          background: #ffffff;
+          border: 1px solid var(--border-color);
+          border-radius: 6px;
+          padding: 35px 40px;
+          box-shadow: 0 4px 20px rgba(46, 44, 41, 0.02);
+          text-align: center; /* Выравнивание текста баннера по центру */
+      }
+      .custom-order-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          margin-bottom: 12px;
+          color: var(--text-main);
+      }
+      .custom-order-text {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          font-weight: 300;
+          line-height: 1.6;
       }
 
       .section-portfolio {
@@ -417,7 +445,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-      }
+          }
 
       .lightbox-arrow {
           position: absolute;
@@ -638,7 +666,7 @@
           font-weight: 700;
       }
       .checkout-btn {
-          background: #25D366; /* Цвет WhatsApp */
+          background: #25D366; 
           color: #ffffff;
           border: none;
           width: 100%;
@@ -702,6 +730,33 @@
           color: #ffffff;
       }
 
+      /* КНОПКА НАВЕРХ */
+      .scroll-top-btn {
+          position: fixed;
+          bottom: 110px;
+          right: 25px;
+          background: rgba(255, 255, 255, 0.95);
+          border: 1px solid var(--border-color);
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          cursor: pointer;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+          z-index: 999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          color: var(--text-main);
+      }
+      .scroll-top-btn.visible {
+          opacity: 1;
+          visibility: visible;
+      }
+
       @media (hover: hover) {
           .sticky-footer-btn:hover {
               background: var(--text-main);
@@ -712,6 +767,11 @@
               background: #33312e;
               transform: translateY(-3px);
           }
+          .scroll-top-btn:hover {
+              background: var(--text-main);
+              color: #ffffff;
+              border-color: var(--text-main);
+          }
       }
 
       @media (max-width: 768px) {
@@ -719,9 +779,16 @@
           .brand-text-heading { font-size: 1.8rem; letter-spacing: 3px; }
           .brand-desc { font-size: 0.95rem; }
           
+          body { padding-bottom: 110px; } 
+
           .main-categories-grid { grid-template-columns: 1fr; gap: 20px; }
           .category-menu-card { min-height: 140px; padding: 35px 25px; }
           .category-menu-title { font-size: 1.25rem; }
+
+          .custom-order-banner { padding: 25px 0 5px; } 
+          .custom-order-box { padding: 25px 20px; }
+          .custom-order-title { font-size: 1.15rem; }
+          .custom-order-text { font-size: 0.88rem; }
 
           .subcategory-title { font-size: 1.25rem; margin-bottom: 25px; }
           .products-grid { grid-template-columns: 1fr; gap: 25px; }
@@ -752,6 +819,13 @@
               font-size: 0.8rem;
               letter-spacing: 1px;
           }
+          .scroll-top-btn {
+              bottom: 85px;
+              right: 15px;
+              width: 42px;
+              height: 42px;
+              font-size: 1.3rem;
+          }
       }
   </style>
 </head>
@@ -773,6 +847,9 @@
   </div>
 
   <div id="dynamic-content"></div>
+
+  <!-- Кнопка Наверх -->
+  <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">‹</button>
 
   <div class="bottom-bar">
       <a href="#" class="sticky-footer-btn" id="main-cta-btn" target="_blank">Индивидуальный расчет</a>
@@ -806,7 +883,9 @@
           instagramUrl: "https://instagram.com/woody_brand.kz", 
           brandName: "WOODY BRAND",
           brandLogo: "Images/logo.png", 
-          brandDesc: "Производство изделий из дерева для ресторанов и бизнеса в Астане",
+          brandDesc: "Изделия из дерева для ресторанов и бизнеса в Астане",
+          // Текст для кнопки быстрого расчета:
+          customOrderText: "Здравствуйте! Я хочу сделать индивидуальный расчет изделия по референсу / собственным размерам.",
           
           categories: [
               { id: "massiv", name: "Массив дерева", desc: "Доски для стейков, премиум органайзеры, пеналы под приборы" },
@@ -858,7 +937,7 @@
                   category: "massiv",
                   subcategory: "Доски для подачи блюд",
                   title: "Доска для Сета DDS-M-01",
-                  desc: "Материал: Ясень / Размер: 30х30x2 см",
+                  desc: "Material: Ясень / Размер: 30х30x2 см",
                   meta: "Цены с учётом брендирования",
                   img: ["Images/DDS-M-01_1.jpg", "Images/DDS-M-01_2.jpg"],
                   priceTiers: [
@@ -1150,11 +1229,31 @@
           document.getElementById("instagram-block").innerHTML = `
               <a href="${DATA.instagramUrl}" class="instagram-btn" target="_blank">Instagram</a>
           `;
-          document.getElementById("main-cta-btn").href = `https://wa.me/${DATA.whatsappNumber}`;
+          
+          // НАСТРОЙКА КНОПКИ «Индивидуальный расчет» с шаблонным сообщением:
+          document.getElementById("main-cta-btn").href = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(DATA.customOrderText)}`;
           
           updateCartBadge();
           showMainMenu();
+
+          // Логика показа кнопки Наверх при скролле
+          const scrollTopBtn = document.getElementById("scrollTopBtn");
+          window.addEventListener("scroll", () => {
+              if (window.scrollY > 400) {
+                  scrollTopBtn.classList.add("visible");
+              } else {
+                  scrollTopBtn.classList.remove("visible");
+              }
+          });
       });
+
+      // Скролл наверх
+      function scrollToTop() {
+          window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+          });
+      }
 
       // Переключение в главное меню
       function showMainMenu() {
@@ -1179,11 +1278,24 @@
           `).join('');
 
           container.innerHTML = `
+              <!-- ИНФОРМАЦИОННЫЙ БАННЕР -->
+              <div class="custom-order-banner" id="custom-order-banner">
+                  <div class="container">
+                      <div class="custom-order-box">
+                          <div class="custom-order-title">Собственное производство под заказ</div>
+                          <div class="custom-order-text">
+                              Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам. </div><strong>Сроки производства начинаются от 7 рабочих дней, в зависимости от типа и количества изделий.</strong></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
               <section class="section-categories">
                   <div class="container">
                       <div class="main-categories-grid">${categoriesHtml}</div>
                   </div>
               </section>
+
               <section class="section-portfolio">
                   <div class="container">
                       <h2 class="section-title">Примеры готовых работ</h2>
@@ -1420,7 +1532,7 @@
           });
 
           text += `*Итого предварительно: ${overallTotal.toLocaleString('ru-RU')} ₸*\n\n`;
-          text += `Пожалуйста, проверьте заказ и подготовьте полную стоимость с учётом брендирования.`;
+          text += `Пожалуйста, проверьте заказ и подготовьте полную стоимость.`;
 
           const url = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(text)}`;
           window.open(url, '_blank');
