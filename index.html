@@ -44,8 +44,39 @@
           border-bottom: 1px solid var(--border-color);
       }
 
+      /* === ОБНОВЛЕННЫЙ БЛОК: ИНФОРМАЦИЯ О ПРОИЗВОДСТВЕ === */
+      .custom-order-banner {
+          background-color: #ffffff;
+          padding: 30px 0 10px;
+          text-align: center;
+      }
+      .custom-order-box {
+          background-color: #f5f2eb;
+          border: 1px solid var(--border-color);
+          border-radius: 6px;
+          padding: 25px 30px;
+          max-width: 800px;
+          margin: 0 auto;
+          box-shadow: 0 2px 10px rgba(46, 44, 41, 0.02);
+      }
+      .custom-order-title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          margin-bottom: 8px;
+          color: var(--text-main);
+      }
+      .custom-order-text {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          font-weight: 300;
+          max-width: 680px;
+          margin: 0 auto;
+      }
+
       .section-categories {
-          padding: 50px 0 60px;
+          padding: 30px 0 60px; 
           background-color: var(--bg-color); 
       }
 
@@ -325,7 +356,7 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 15; /* Увеличено z-index, чтобы стрелки были поверх картинок */
+          z-index: 15; 
           background: rgba(255, 255, 255, 0.9);
           border: 1px solid rgba(0, 0, 0, 0.05);
           width: 40px; 
@@ -571,6 +602,12 @@
           .brand-text-heading { font-size: 1.8rem; letter-spacing: 3px; }
           .brand-desc { font-size: 0.95rem; }
           
+          .custom-order-banner { padding: 20px 0 5px; }
+          .custom-order-box { padding: 18px 20px; }
+          .custom-order-title { font-size: 1rem; }
+          .custom-order-text { font-size: 0.88rem; }
+
+          .section-categories { padding: 20px 0 50px; }
           .main-categories-grid { grid-template-columns: 1fr; gap: 20px; }
           .category-menu-card { min-height: 160px; padding: 35px 25px; }
           .category-menu-title { font-size: 1.25rem; }
@@ -611,6 +648,20 @@
       </div>
   </header>
 
+  <!-- Обновленный баннер, исключающий двусмысленность -->
+  <div class="custom-order-banner" id="custom-order-banner">
+      <div class="container">
+          <div class="custom-order-box">
+              <div class="custom-order-title">Собственное производство под заказ</div>
+              <div class="custom-order-text">
+                  Все позиции в каталоге изготавливаются под заказ с нанесением вашего логотипа. Если вы не нашли нужную модель или размер, мы можем изготовить изделия по вашим референсам, фотографиям или чертежам.
+
+                  </div>Сроки производства начинаются от 7 (рабочих) дней, в зависимости от типа и количества изделий.
+              </div>
+          </div>
+      </div>
+  </div>
+
   <div class="back-nav-wrapper" id="back-nav-block" style="display: none;">
       <div class="container">
           <button class="back-btn" onclick="showMainMenu()">← В главное меню</button>
@@ -619,7 +670,8 @@
 
   <div id="dynamic-content"></div>
 
-  <a href="#" class="sticky-footer-btn" id="main-cta-btn" target="_blank">Индивидуальный расчет</a>
+  <!-- Текст этой кнопки теперь меняется динамически скриптом -->
+  <a href="#" class="sticky-footer-btn" id="main-cta-btn" target="_blank">Заказать по референсу</a>
 
   <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
       <span class="lightbox-close-btn">&times;</span>
@@ -634,7 +686,7 @@
           instagramUrl: "https://instagram.com/woody_brand.kz", 
           brandName: "WOODY BRAND",
           brandLogo: "Images/logo.png", 
-          brandDesc: "Производство изделий из дерева для ресторанов и бизнеса в Астане",
+          brandDesc: "Изделия из дерева для ресторанов и бизнеса в Астане",
           
           categories: [
               { id: "massiv", name: "Массив дерева", desc: "Доски для стейков, премиум органайзеры, пеналы под приборы" },
@@ -726,8 +778,8 @@
                   meta: "Цены с учётом брендирования",
                   img: ["Images/PPP-M-M-01_1.jpg", "Images/PPP-M-M-01_2.jpg"],
                   priceTiers: [
-                      { range: "5–9 шт.", price: "5 300 ₸" },
-                      { range: "10–40 шт.", price: "4 500 ₸" },
+                      { range: "5–30 шт.", price: "5 300 ₸" },
+                      { range: "31–40 шт.", price: "4 500 ₸" },
                       { range: "от 50 шт.", price: "3 800 ₸" }
                   ]
               },
@@ -942,31 +994,29 @@
           ]
       };
 
-      // Глобальное состояние для лайтбокса (увеличения фото)
       let currentLightboxImages = [];
       let currentLightboxIndex = 0;
 
-      // Инициализация при загрузке страницы
       document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("brand-desc").textContent = DATA.brandDesc;
-          
-          // Рендерим логотип
           document.getElementById("brand-logo").innerHTML = `<img src="${DATA.brandLogo}" alt="${DATA.brandName}">`;
-          
-          // Кнопка Инстаграма
           document.getElementById("instagram-block").innerHTML = `
               <a href="${DATA.instagramUrl}" class="instagram-btn" target="_blank">Instagram</a>
           `;
-          
-          // Ссылка для главной кнопки снизу
-          document.getElementById("main-cta-btn").href = `https://wa.me/${DATA.whatsappNumber}`;
           
           showMainMenu();
       });
 
       // Переключение в главное меню
       function showMainMenu() {
+          document.getElementById("custom-order-banner").style.display = "block";
           document.getElementById("back-nav-block").style.display = "none";
+          
+          // Меняем назначение и текст нижней плавающей кнопки на главном экране
+          const ctaBtn = document.getElementById("main-cta-btn");
+          ctaBtn.textContent = "Изготовить по референсу";
+          ctaBtn.href = `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent('Здравствуйте! Хочу отправить свой референс/фото для индивидуального расчета стоимости.')}`;
+
           const container = document.getElementById("dynamic-content");
           
           let categoriesHtml = DATA.categories.map(cat => {
@@ -1006,12 +1056,17 @@
 
       // Переключение внутрь категории товаров
       function showCategory(catId) {
+          document.getElementById("custom-order-banner").style.display = "none";
           document.getElementById("back-nav-block").style.display = "block";
-          const container = document.getElementById("dynamic-content");
           
+          // Возвращаем стандартный текст плавающей кнопке внутри категорий
+          const ctaBtn = document.getElementById("main-cta-btn");
+          ctaBtn.textContent = "Индивидуальный расчет";
+          ctaBtn.href = `https://wa.me/${DATA.whatsappNumber}`;
+
+          const container = document.getElementById("dynamic-content");
           const filteredProducts = DATA.products.filter(p => p.category === catId);
           
-          // Группируем по подкатегориям
           const subcategories = {};
           filteredProducts.forEach(p => {
               if (!subcategories[p.subcategory]) subcategories[p.subcategory] = [];
@@ -1079,7 +1134,6 @@
           window.scrollTo(0, 0);
       }
 
-      // Слайдер внутри карточки товара — ИСПРАВЛЕННЫЙ КОРРЕКТНЫЙ ВАРИАНТ ДЛЯ МОБИЛЬНЫХ
       function changeSlide(btn, direction, event) {
           if (event) {
               event.preventDefault();
@@ -1106,7 +1160,6 @@
           if (dots.length) dots[newIndex].classList.add('active');
       }
 
-      // Полноэкранный просмотр картинок (Лайтбокс) — ИСПРАВЛЕННЫЙ КОРРЕКТНЫЙ ВАРИАНТ
       function openLightbox(imagesArray, index, event) {
           if (event) {
               event.preventDefault();
@@ -1122,7 +1175,6 @@
           targetImg.src = currentLightboxImages[currentLightboxIndex];
           modal.classList.add("open");
           
-          // Прячем стрелки в лайтбоксе, если фото всего одно
           const arrows = modal.querySelectorAll('.lightbox-arrow');
           arrows.forEach(a => a.style.display = currentLightboxImages.length > 1 ? 'flex' : 'none');
       }
@@ -1131,7 +1183,6 @@
           document.getElementById("lightbox-modal").classList.remove("open");
       }
 
-      // Переключение слайдов в лайтбоксе — ИСПРАВЛЕННЫЙ КОРРЕКТНЫЙ ВАРИАНТ
       function moveLightboxSlide(direction, event) {
           if (event) {
               event.preventDefault();
